@@ -110,6 +110,14 @@ export const zhSidebar: DefaultTheme.Sidebar = {
         { text: 'React Hooks（一）', link: `/08_React18/11_${commonDirectoryName}/` },
         { text: 'React Hooks（二）', link: `/08_React18/12_${commonDirectoryName}/` },
       ]
+    },
+    {
+      text: '前端组件库',
+      collapsed: true,
+      items: [
+        { text: 'Vue 组件库', link: `/09_component-ui/01_${commonDirectoryName}/` },
+        { text: 'React 组件库', link: `/09_component-ui/01_${commonDirectoryName}/` },
+      ]
     }
   ],
 }
