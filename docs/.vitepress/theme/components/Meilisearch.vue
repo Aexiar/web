@@ -14,8 +14,8 @@ onMounted(async () => {
   meilisearchDetector.default({
     container: "#docsearch",
     host: "https://meilisearch.weiweixu.cn",
-    apiKey: "83add19fa3afb78d1c50078a477a36b873bfa354f85f38d28f939698f8e27c80",
-    indexUid: "java-weiweixu",
+    apiKey: "a9c9c19cf5ad00edaafd6ec54767964b604e02a7afb5b223e387942edc6a08b5",
+    indexUid: "web-design-weiweixu",
     translations: {
       button: {
         buttonText: "搜索文档",
