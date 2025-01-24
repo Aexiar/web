@@ -1,20 +1,67 @@
 <template>
   <DefaultTheme.Layout>
     <template #doc-footer-before>
-      <Backtotop />
+      <BackTop />
     </template>
     <template #doc-before>
       <ArticleMetadata />
     </template>
+    <template #doc-top>
+      <NolebaseHighlightTargetedHeading />
+    </template>
+    <template #aside-outline-before>
+      <ShareButton />
+    </template>
+    <template #nav-bar-content-before>
+      <Meilisearch />
+    </template>
+    <template #nav-bar-content-after>
+      <NolebaseEnhancedReadabilitiesMenu />
+    </template>
+    <template #nav-screen-content-after>
+      <NolebaseEnhancedReadabilitiesScreenMenu />
+    </template>
   </DefaultTheme.Layout>
 </template>
 
-<script setup lang="ts">
-import Backtotop from "./BackTop.vue";
+<script lang="ts" setup>
+import BackTop from "./BackTop.vue";
 import ArticleMetadata from "./ArticleMetadata.vue";
 import { useData } from "vitepress";
 import DefaultTheme from "vitepress/theme";
-import { nextTick, provide } from "vue";
+import { nextTick, provide, onMounted } from "vue";
+import { ShareButton } from "@theojs/lumen";
+
+import "@nolebase/vitepress-plugin-highlight-targeted-heading/client/style.css";
+import { NolebaseHighlightTargetedHeading } from "@nolebase/vitepress-plugin-highlight-targeted-heading/client";
+
+import {
+  NolebaseEnhancedReadabilitiesMenu,
+  NolebaseEnhancedReadabilitiesScreenMenu,
+} from "@nolebase/vitepress-plugin-enhanced-readabilities/client";
+
+import "@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css";
+
+import Meilisearch from "./Meilisearch.vue";
+
+// onMounted(async () => {
+//   const meilisearchDetector = await import("meilisearch-docsearch");
+//   meilisearchDetector.default({
+//     container: "#docsearch",
+//     host: "https://meilisearch.weiweixu.cn",
+//     apiKey: "83add19fa3afb78d1c50078a477a36b873bfa354f85f38d28f939698f8e27c80",
+//     indexUid: "java-weiweixu",
+//   });
+//   // if (typeof window !== "undefined") {
+//   //   const { docsearch } = await import("../utils/docsearch.esm.js"); // 动态加载 docsearch
+//   //   docsearch({
+//   //     container: "#docsearch",
+//   //     host: "https://meilisearch.weiweixu.cn",
+//   //     apiKey: "83add19fa3afb78d1c50078a477a36b873bfa354f85f38d28f939698f8e27c80",
+//   //     indexUid: "java-weiweixu",
+//   //   });
+//   // }
+// });
 
 const { isDark } = useData();
 
@@ -42,17 +89,18 @@ provide("toggle-appearance", async ({ clientX: x, clientY: y }: MouseEvent) => {
   }).ready;
 
   document.documentElement.animate(
-    { clipPath: isDark.value ? clipPath.reverse() : clipPath },
+    { clipPath: isDark.value ? clipPath.reverse() : clipPath } as AnimationKeyFrame,
     {
       duration: 300,
       easing: "ease-in",
       pseudoElement: `::view-transition-${isDark.value ? "old" : "new"}(root)`,
-    }
+    } as any
   );
 });
 </script>
 
 <style>
+/* @import "../style/meilisearch-docsearch.css"; */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;

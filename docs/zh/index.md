@@ -22,7 +22,7 @@ head:
 hero:
   name: "WEB 前端"
   text: "大、全、细"
-  tagline: "『构建网页或应用用户界面，涉及 HTML 、CSS 和 JavaScript 等技术，重点在于设计和优化用户体验。』"
+  tagline: "构建网页或应用用户界面。"
   image:  # text 和 tagline 区域旁的图片
     src: /logo.svg
     alt: "许大仙"
@@ -51,4 +51,4 @@ features:
 
 <confetti />
 <HomeUnderline />
-
+<TypeIt />
