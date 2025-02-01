@@ -22,7 +22,7 @@ head:
 hero:
   name: "WEB 前端"
   text: "大、全、细"
-  tagline: "构建网页或应用用户界面。"
+  tagline: "欢迎来到我的博客🎉"
   image:  # text 和 tagline 区域旁的图片
     src: /logo.svg
     alt: "许大仙"
