@@ -2,12 +2,12 @@ name: Build Deploy
 
 # 在main分支发生push事件时触发。
 on:
-  push:
-    branches:
-      - main
-      - master
-    paths:
-      - "docs/**" # 只当docs文件夹中的文件发生变化时触发
+  # push:
+  #   branches:
+  #     - main
+  #     - master
+  #   paths:
+  #     - "docs/**" # 只当docs文件夹中的文件发生变化时触发
   workflow_dispatch:
 
 # 设置环境变量
