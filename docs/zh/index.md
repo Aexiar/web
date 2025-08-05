@@ -30,10 +30,10 @@ hero:
   actions:
     - theme: brand
       text: "🏠首页"
-      link: "/"        
+      link: "/"      
     - theme: alt
       text: "🎉快速开始"
-      link: "/01_basic/01_xdx/"            
+      link: "/guide"   
 
 # 按钮下方的描述
 features:

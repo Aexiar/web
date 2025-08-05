@@ -184,3 +184,17 @@
     top: -2px;
     margin-right: 4px;
 }
+
+/* Google drive */
+.vp-doc a[href*="drive.google"]:before {
+    content: '';
+    background-image: url(/svg/googleDrive.svg);
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    background-size: cover;
+    top: -2px;
+    margin-right: 4px;
+}

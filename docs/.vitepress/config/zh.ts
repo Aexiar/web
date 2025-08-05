@@ -1,5 +1,4 @@
 import { zhNav } from '../navbar'
-import { zhSidebar } from '../sidebar'
 import dayjs from 'dayjs'
 import type { DefaultTheme, LocaleSpecificConfig } from 'vitepress'
 
@@ -8,7 +7,6 @@ export const zhConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
     lastUpdatedText: '上次更新', // 上次更新显示文本
     returnToTopLabel: '返回顶部', // 更改手机端菜单文字显示
     nav: zhNav,
-    sidebar: zhSidebar, // 侧边栏
     docFooter: { // 自定义上下页名
       prev: '上一篇', next: '下一篇'
     },

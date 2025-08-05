@@ -11,37 +11,65 @@ import TypeIt from "./components/TypeIt.vue"
 import SwitchLayout from './components/SwitchLayout.vue'
 import HomeUnderline from "./components/HomeUnderline.vue"
 import MouseClick from "./components/MouseClick.vue"
-import MouseFollower from "./components/MouseFollower.vue"
 import { NProgress } from 'nprogress-v2/dist/index.js'
-import {
-  NolebaseGitChangelogPlugin
-} from '@nolebase/vitepress-plugin-git-changelog/client'
 import {
   NolebaseInlineLinkPreviewPlugin,
 } from '@nolebase/vitepress-plugin-inline-link-preview/client'
 import '@nolebase/vitepress-plugin-inline-link-preview/client/style.css'
-import '@nolebase/vitepress-plugin-git-changelog/client/style.css'
 import 'nprogress-v2/dist/index.css'
 import "vitepress-markdown-timeline/dist/theme/index.css"
-import 'virtual:group-icons.css' //代码组样式
+import 'virtual:group-icons.css'
 import './style/index.css'
 import xgplayer from "./components/Xgplayer.vue"
 
+// 彩虹背景动画样式
+function updateHomePageStyle(value: boolean) {
+  if (value) {
+    if (homePageStyle) return
+
+    homePageStyle = document.createElement('style')
+    homePageStyle.innerHTML = `
+    :root {
+      animation: rainbow 12s linear infinite;
+    }`
+    document.body.appendChild(homePageStyle)
+  } else {
+    if (!homePageStyle) return
+
+    homePageStyle.remove()
+    homePageStyle = undefined
+  }
+}
+
+let homePageStyle: HTMLStyleElement | undefined
 export default {
   extends: DefaultTheme,
   Layout() {
     return h(SwitchLayout)
   },
   enhanceApp({ app, router }: EnhanceAppContext) {
+    // 彩虹背景动画样式
+    if (typeof window !== 'undefined') {
+      watch(
+        () => router.route.data.relativePath,
+        () => updateHomePageStyle(location.pathname === '/'),
+        { immediate: true },
+      )
+    }
+    // 开启详细的水合错误信息
+    app.config.warnHandler = (msg, instance, trace) => {
+      console.warn('[Vue warn]:', msg)
+      console.warn('Component trace:', trace)
+    }
+
     app.component('ArticleMetadata', ArticleMetadata)
     app.component('Confetti', Confetti)
     app.component('HomeUnderline', HomeUnderline)
     app.component('TypeIt', TypeIt)
     app.component('MouseClick', MouseClick) //鼠标跟随组件
-    app.component('MouseFollower', MouseFollower) //鼠标跟随组件
     app.component('xgplayer', xgplayer) //鼠标跟随组件
-    app.use(NolebaseGitChangelogPlugin)
     app.use(NolebaseInlineLinkPreviewPlugin)
+
     if (inBrowser) {
       NProgress.configure({ showSpinner: false })
       // 手动定义 onBeforeRouteChange
@@ -49,13 +77,12 @@ export default {
         NProgress.start() // 开始进度条
       }
       // 在页面加载完成时停止进度条
-      router.onAfterRouteChanged = () => {
+      router.onAfterRouteChange = () => {
         NProgress.done() // 停止进度条
       }
     }
   },
   setup() {
-    // Get frontmatter and route
     const { frontmatter } = useData()
     const route = useRoute()
     const initZoom = () => {

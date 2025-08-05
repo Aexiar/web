@@ -1,24 +1,26 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig, type UserConfig } from 'vitepress'
 import timeline from "vitepress-markdown-timeline"
 import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
 import { figure } from '@mdit/plugin-figure'
 import { loadEnv } from 'vite'
 import { withMermaid } from 'vitepress-plugin-mermaid'
-import {
-  GitChangelog,
-  GitChangelogMarkdownSection,
-} from '@nolebase/vitepress-plugin-git-changelog/vite'
+import Permalink from "vitepress-plugin-permalink"
 import {
   InlineLinkPreviewElementTransform
 } from '@nolebase/vitepress-plugin-inline-link-preview/markdown-it'
+import terser from '@rollup/plugin-terser'
+import { vitepressDemoPlugin } from 'vitepress-demo-plugin'
+import markdownItTaskCheckbox from 'markdown-it-task-checkbox'
+import path from 'path'
+import { VitePressSidebarOptions } from "vitepress-sidebar/types"
+import { withSidebar } from "vitepress-sidebar"
 
 const mode = process.env.NODE_ENV || 'development'
 const { VITE_BASE_URL } = loadEnv(mode, process.cwd())
-
 console.log('Mode:', process.env.NODE_ENV)
 console.log('VITE_BASE_URL:', VITE_BASE_URL)
 
-export const sharedConfig = defineConfig({
+const vitePressOptions = withMermaid(defineConfig({
   rewrites: {
     'zh/:rest*': ':rest*'
   },
@@ -45,10 +47,11 @@ export const sharedConfig = defineConfig({
   lastUpdated: true, // 上次更新
   vite: {
     build: {
-      chunkSizeWarningLimit: 1600
+      chunkSizeWarningLimit: 2000,
     },
     ssr: {
       noExternal: [
+        'dayjs',
         '@nolebase/vitepress-plugin-enhanced-readabilities',
         '@nolebase/ui',
         '@nolebase/vitepress-plugin-highlight-targeted-heading',
@@ -63,20 +66,36 @@ export const sharedConfig = defineConfig({
       ],
     },
     plugins: [
-      (groupIconVitePlugin() as any),
+      terser(),
       //代码组图标
-      GitChangelog({
-        // 填写在此处填写您的仓库链接
-        repoURL: () => 'https://github.com/Aurorxa/web-design',
-      }),
-      GitChangelogMarkdownSection({
-        exclude: (id) => id.endsWith("index.md"),
-        sections: {
-          disableChangelog: true,
-          disableContributors: true,
-        },
-      }),
-
+      (groupIconVitePlugin({
+        customIcon: {
+          'c': localIconLoader(import.meta.url, '../../public/iconify/c.svg'),
+          'idea': localIconLoader(import.meta.url, '../../public/iconify/idea.svg'),
+          'webstorm': localIconLoader(import.meta.url, '../../public/iconify/webstorm.svg'),
+          'h': localIconLoader(import.meta.url, '../../public/iconify/c.svg'),
+          'cpp': localIconLoader(import.meta.url, '../../public/iconify/cpp.svg'),
+          'java': 'vscode-icons:file-type-java',
+          'winget': 'vscode-icons:file-type-shell',
+          'choco': localIconLoader(import.meta.url, '../../public/iconify/choco.svg'),
+          "控制台": localIconLoader(import.meta.url, '../../public/iconify/terminal.svg'),
+          "项目结构": localIconLoader(import.meta.url, '../../public/iconify/architecture.svg'),
+          "AlmaLinux": localIconLoader(import.meta.url, '../../public/iconify/almaLinux.svg'),
+          "Ubuntu": localIconLoader(import.meta.url, '../../public/iconify/ubuntu.svg'),
+          'cmd': 'vscode-icons:file-type-shell',
+          'powershell': 'vscode-icons:file-type-powershell',
+          'maven': 'vscode-icons:file-type-apache',
+          'gradle': 'vscode-icons:file-type-light-gradle',
+          'git': 'vscode-icons:file-type-git',
+          'bash': 'vscode-icons:file-type-gnu',
+          'shell': 'vscode-icons:file-type-gnu',
+          'sh': 'vscode-icons:file-type-gnu',
+          'cpu': localIconLoader(import.meta.url, '../../public/iconify/cpu.svg'),
+          'faq': localIconLoader(import.meta.url, '../../public/iconify/reply.svg'),
+          'sql': 'vscode-icons:file-type-sql'
+        }
+      }) as any),
+      Permalink(),
     ],
     server: {
       port: 10089
@@ -99,15 +118,25 @@ export const sharedConfig = defineConfig({
       // 开启图片懒加载
       lazyLoading: true
     },
-    // 组件插入h1标题下
-    config: (md) => {
+    // md 配置
+    config: async (md) => {
+      // // 动态导入插件
+      const { default: multimdTable } = await import('markdown-it-multimd-table-ext')
+
+      md.use(multimdTable, {
+        multiline: true,
+        rowspan: true,
+        headerless: true,
+        multibody: true,
+        aotolabel: true,
+      })
       // 创建 markdown-it 插件
       md.use((md) => {
         const defaultRender = md.render
-        md.render = function (...args) {
+        md.render = (...args) => {
           const [content, env] = args
-          const currentLang = env.localeIndex
-          const isHomePage = env.path === '/' || env.relativePath === 'index.md'  // 判断是否是首页
+          const currentLang = env?.localeIndex || 'root'
+          const isHomePage = env?.path === '/' || env?.relativePath === 'index.md'  // 判断是否是首页
 
           if (isHomePage) {
             return defaultRender.apply(md, args) // 如果是首页，直接渲染内容
@@ -132,9 +161,33 @@ export const sharedConfig = defineConfig({
           // 返回渲染的内容
           return defaultContent
         }
+
+        // 获取原始的 fence 渲染规则
+        const defaultFence = md.renderer.rules.fence?.bind(md.renderer.rules) ?? ((...args) => args[0][args[1]].content)
+
+        // 重写 fence 渲染规则
+        md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+          const token = tokens[idx]
+          const info = token.info.trim()
+
+          // 判断是否为 md:img 类型的代码块
+          if (info.includes('md:img')) {
+            // 只渲染图片，不再渲染为代码块
+            return `<div class="rendered-md">${md.render(token.content)}</div>`
+          }
+
+          // 其他代码块按默认规则渲染（如 java, js 等）
+          return defaultFence(tokens, idx, options, env, self)
+        }
       })
       md.use(timeline)
       md.use(groupIconMdPlugin) //代码组图标
+      md.use(InlineLinkPreviewElementTransform)
+      md.use(figure, { figcaption: 'alt', copyAttrs: '^class$', lazy: true })
+      md.use(markdownItTaskCheckbox)
+      md.use(vitepressDemoPlugin, {
+        demoDir: path.resolve(__dirname, '../demos'),
+      })
     }
   },
   themeConfig: { // 主题设置
@@ -200,4 +253,39 @@ export const sharedConfig = defineConfig({
       },
     },
   }
-})
+}))
+
+
+const vitePressSidebarOption: VitePressSidebarOptions | VitePressSidebarOptions[] = {
+  documentRootPath: 'docs',
+  debugPrint: true,
+  basePath: `${VITE_BASE_URL}`,
+  collapsed: true,
+  excludePattern: ['assets', 'public', 'index.md', 'about'],
+  includeDotFiles: true,
+  includeRootIndexFile: false,
+  includeEmptyFolder: true,
+  includeFolderIndexFile: false,
+  removePrefixAfterOrdering: true,
+  prefixSeparator: '.',
+  useFolderLinkFromIndexFile: true,
+  useTitleFromFrontmatter: true,
+  folderLinkNotIncludesFileName: true,
+  keepMarkdownSyntaxFromTitle: true
+}
+
+const rootLocale = 'zh'
+const supportedLocales = [rootLocale, 'en']
+
+const vitePressSidebarOptions = [
+  ...supportedLocales.map((lang) => {
+    return {
+      ...vitePressSidebarOption,
+      ...(rootLocale === lang ? {} : { basePath: `/${lang}/` }), // If using `rewrites` option
+      documentRootPath: `/docs/${lang}`,
+      resolvePath: rootLocale === lang ? '/' : `/${lang}/`,
+    }
+  })
+]
+
+export const sharedConfig = withSidebar(vitePressOptions, vitePressSidebarOptions)
