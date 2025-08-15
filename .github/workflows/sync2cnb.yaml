@@ -6,6 +6,8 @@ on:
     branches:
       - main
       - master
+    paths:
+      - "docs/**" # 只当docs文件夹中的文件发生变化时触发
   workflow_dispatch:
 
 # 设置环境变量
