@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:26
+title: index
+encrypt: false
+permalink: /pages/5d8710
+---
 # 第一章：TS 中类的使用
 
 ## 1.1 概述

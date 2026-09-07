@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:26
+title: index
+encrypt: false
+permalink: /pages/b643c2
+---
 # 第一章：回顾纯函数
 
 ## 1.1 概述

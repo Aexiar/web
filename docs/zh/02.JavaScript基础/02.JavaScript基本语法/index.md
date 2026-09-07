@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:25
+title: index
+encrypt: false
+permalink: /pages/20f49f
+---
 # 第一章：JavaScript 的基本语法
 
 ## 1.1 JavaScript 的书写位置（ ⭐）

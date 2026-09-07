@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:25
+title: index
+encrypt: false
+permalink: /pages/19e8e8
+---
 # 第一章：对象类型的使用（⭐）
 
 ## 1.1 认识对象类型

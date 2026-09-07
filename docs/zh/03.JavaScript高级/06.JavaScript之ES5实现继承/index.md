@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:25
+title: index
+encrypt: false
+permalink: /pages/68d78d
+---
 # 第一章：对象和函数的原型（⭐）
 
 ## 1.1 回顾一下 JavaScript 借鉴了哪些编程语言

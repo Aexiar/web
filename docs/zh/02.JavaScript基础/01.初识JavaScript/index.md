@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:25
+title: index
+encrypt: false
+permalink: /pages/e08ba8
+---
 # 第一章：前端的三大核心
 
 * 目前，前端最主要掌握的三个知识点就是 `HTML`、`CSS` 和 `JavaScript` 。

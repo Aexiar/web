@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:25
+title: index
+encrypt: false
+permalink: /pages/e4aa11
+---
 # 第一章：认识数组（Array）
 
 ## 1.1 概述

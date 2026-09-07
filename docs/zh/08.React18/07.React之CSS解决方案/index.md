@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:26
+title: index
+encrypt: false
+permalink: /pages/2d9930
+---
 # 第一章：React 中的过渡动画
 
 ## 1.1 概述

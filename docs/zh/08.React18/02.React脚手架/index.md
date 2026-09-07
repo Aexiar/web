@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:26
+title: index
+encrypt: false
+permalink: /pages/630ded
+---
 > 前提条件： Node >= 14.0.0 和 npm >= 5.6 。
 
 # 第一章：为什么要有脚手架？

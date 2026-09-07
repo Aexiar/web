@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:25
+title: index
+encrypt: false
+permalink: /pages/bda1f4
+---
 # 第一章：运算符（⭐）
 
 ## 1.1 概述

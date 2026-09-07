@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:25
+title: index
+encrypt: false
+permalink: /pages/708d8a
+---
 # 第一章：ECMA 概念新描述
 
 ## 1.1 概述

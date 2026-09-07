@@ -1,0 +1,42 @@
+/* A restrained full-page atmosphere for the WEB home page. */
+.is-home-page .Layout {
+    --home-coral-wash: rgba(255, 231, 224, 0.62);
+    --home-gold-wash: rgba(255, 247, 210, 0.54);
+    --home-fade: rgba(255, 255, 255, 0.78);
+    --home-grid: rgba(230, 67, 61, 0.075);
+    background-color: var(--vp-c-bg);
+    background-image:
+        linear-gradient(to bottom, transparent 52%, var(--home-fade) 84%, var(--vp-c-bg) 100%),
+        radial-gradient(circle at 68% 23%, rgba(255, 207, 190, 0.34), transparent 24%),
+        linear-gradient(145deg, var(--home-coral-wash) 0%, transparent 42%),
+        linear-gradient(215deg, var(--home-gold-wash) 0%, transparent 46%),
+        linear-gradient(var(--home-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--home-grid) 1px, transparent 1px);
+    background-size: auto, auto, auto, auto, 76px 76px, 76px 76px;
+    background-repeat: no-repeat;
+}
+
+.is-home-page .VPContent,
+.is-home-page .VPHome,
+.is-home-page .VPFooter {
+    background: transparent;
+}
+
+.dark.is-home-page .Layout {
+    --home-coral-wash: rgba(105, 39, 34, 0.3);
+    --home-gold-wash: rgba(91, 68, 22, 0.26);
+    --home-fade: rgba(27, 27, 31, 0.76);
+    --home-grid: rgba(255, 114, 109, 0.07);
+}
+
+@media (max-width: 768px) {
+    .is-home-page .Layout {
+        --home-coral-wash: rgba(255, 235, 230, 0.4);
+        --home-gold-wash: rgba(255, 247, 218, 0.36);
+    }
+
+    .dark.is-home-page .Layout {
+        --home-coral-wash: rgba(105, 39, 34, 0.24);
+        --home-gold-wash: rgba(91, 68, 22, 0.22);
+    }
+}

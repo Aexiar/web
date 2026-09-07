@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:25
+title: index
+encrypt: false
+permalink: /pages/deea0d
+---
 # 第一章：认识事件处理
 
 ## 1.1 认识事件处理

@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:25
+title: index
+encrypt: false
+permalink: /pages/97087a
+---
 
 
 # 第一章：对象的相关方法

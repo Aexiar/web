@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:26
+title: index
+encrypt: false
+permalink: /pages/f6f49f
+---
 # 第一章：JavaScript 类型的缺失
 
 ## 1.1 JavaScript 的缺点

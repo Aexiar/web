@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:25
+title: index
+encrypt: false
+permalink: /pages/e35ed8
+---
 # 第一章：元素的属性（特性，Attribute，⭐）
 
 ## 1.1 概述

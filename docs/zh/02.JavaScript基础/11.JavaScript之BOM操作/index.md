@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:25
+title: index
+encrypt: false
+permalink: /pages/fccbfd
+---
 # 第一章：认识 BOM
 
 * BOM（Browser Object Model）：浏览器对象模型，其实就是浏览器将各个功能对进行抽象，并通过 JavaScript 中的对象提供给开发者进行使用。

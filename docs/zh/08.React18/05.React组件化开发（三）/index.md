@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:26
+title: index
+encrypt: false
+permalink: /pages/e97a65
+---
 # 第一章：React 性能优化 SCU
 
 ## 1.1 React 的更新机制

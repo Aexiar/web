@@ -1,6 +1,8 @@
 ---
-title: '计算机常识科普'
+date: 2026-09-07 16:48:25
+title: 计算机常识科普
 permalink: /guide
+encrypt: false
 ---
 
 # 第一章：软件开发和程序员

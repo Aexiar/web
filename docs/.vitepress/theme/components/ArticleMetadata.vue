@@ -1,25 +1,38 @@
 <template>
-  <div class="word">
+  <div class="article-metadata">
     <p>
-      <span>🔥更新：{{ formattedDate }}</span>
-      <span>📝字数: {{ wordCount }} 字</span>
-      <span>⏰时长: {{ readTime }} 分钟</span>
+      <span class="metadata-item">
+        <span class="metadata-icon" data-tooltip="更新" aria-hidden="true"><Calendar :size="15" /></span>
+        <span class="metadata-label">更新</span>
+        <span class="metadata-value">{{ formattedDate }}</span>
+      </span>
+      <span class="metadata-item">
+        <span class="metadata-icon" data-tooltip="字数" aria-hidden="true"><FileText :size="15" /></span>
+        <span class="metadata-label">字数</span>
+        <span class="metadata-value">{{ wordCount }} 字</span>
+      </span>
+      <span class="metadata-item">
+        <span class="metadata-icon" data-tooltip="时长" aria-hidden="true"><Clock :size="15" /></span>
+        <span class="metadata-label">时长</span>
+        <span class="metadata-value">{{ readTime }} 分钟</span>
+      </span>
     </p>
   </div>
 </template>
 
 <script lang="ts" setup>
 import dayjs from "dayjs";
-import { useData } from "vitepress";
-import { computed, ref, onMounted, watch, nextTick } from "vue";
-import { countWord } from "../utils/functions";
-import { useRoute } from "vitepress";
+import {Calendar, Clock, FileText} from "@lucide/vue";
+import {useData} from "vitepress";
+import {computed, ref, onMounted, watch, nextTick} from "vue";
+import {countWord} from "../utils/functions";
+import {useRoute} from "vitepress";
 
 const route = useRoute();
-const { page } = useData();
+const {page} = useData();
 
 const formattedDate = computed(() => {
-  if (!page.value.lastUpdated) return '';
+  if (!page.value.lastUpdated) return "";
   return dayjs(page.value.lastUpdated).format("YYYY-MM-DD");
 });
 
@@ -54,11 +67,13 @@ function analyze() {
     if (!docDomContainer) return;
 
     const imgArr = docDomContainer.querySelectorAll<HTMLImageElement>(
-        ".content-container .main img"
+        ".content-container .main img",
     );
     imageCount.value = imgArr?.length || 0;
 
-    const contentContainer = docDomContainer.querySelector(".content-container .main");
+    const contentContainer = docDomContainer.querySelector(
+        ".content-container .main",
+    );
     const words = contentContainer?.textContent || "";
     wordCount.value = countWord(words);
   });
@@ -77,19 +92,7 @@ watch(
     () => {
       analyze();
     },
-    { flush: 'post' } // Execute after DOM updates
+    {flush: "post"}, // Execute after DOM updates
 );
 </script>
 
-<style>
-.word {
-  color: var(--vp-c-text-2);
-  font-size: 15px;
-  margin-bottom: 15px;
-}
-
-.icon {
-  display: inline-block;
-  transform: translate(0px, 2px);
-}
-</style>

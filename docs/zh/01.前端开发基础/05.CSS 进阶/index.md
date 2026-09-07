@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:25
+title: index
+encrypt: false
+permalink: /pages/c301a4
+---
 # 第一章：文本属性（⭐）
 
 ## 1.1 text-decoration

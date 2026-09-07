@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:25
+title: index
+encrypt: false
+permalink: /pages/fd4fd1
+---
 # 第一章：深入 V8 引擎原理
 
 ## 1.1 回顾浏览器的内核

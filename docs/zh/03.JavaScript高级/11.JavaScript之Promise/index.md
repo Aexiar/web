@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:25
+title: index
+encrypt: false
+permalink: /pages/1b749c
+---
 # 第一章：准备
 
 ## 1.1 回调函数

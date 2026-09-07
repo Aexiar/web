@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:25
+title: index
+encrypt: false
+permalink: /pages/3c096a
+---
 # 第一章：CSS 属性的继承（⭐）
 
 ## 1.1 概述

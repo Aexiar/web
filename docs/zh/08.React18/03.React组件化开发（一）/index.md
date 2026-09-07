@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:26
+title: index
+encrypt: false
+permalink: /pages/5d6f9e
+---
 > 前提：`本文`是`上一篇文章`为`基础`，所有的代码都是在`之前代码`的基础上搭建而来。
 
 # 第一章：React 组件化开发

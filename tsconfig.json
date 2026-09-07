@@ -9,10 +9,10 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "jsx": "preserve",
-    "types": ["node"],
-    "typeRoots": ["node_modules/@types", ".vitepress/types", "./global.d.ts"]
+    "types": ["node", "vite/client"]
   },
   "include": [
+    "env.d.ts",
     "docs/.vitepress/**/*",
     "docs/**/*.md",
     "docs/**/*.vue",

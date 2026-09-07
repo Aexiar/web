@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:26
+title: index
+encrypt: false
+permalink: /pages/d76e90
+---
 # 第一章：认识和体验 Hooks（⭐）
 
 ## 1.1 为什么需要 Hook ？

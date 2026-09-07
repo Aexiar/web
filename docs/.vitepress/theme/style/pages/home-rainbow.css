@@ -1,0 +1,70 @@
+@property --web-home-secondary {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #e9a800;
+}
+
+/* Keep the fallback VitePress home palette aligned with the WEB brand. */
+.is-home-page {
+    --web-home-secondary: #e9a800;
+    animation: web-palette 16s ease-in-out infinite alternate;
+}
+
+@keyframes web-palette {
+    0% {
+        --web-home-secondary: #e9a800;
+    }
+
+    50% {
+        --web-home-secondary: #f05a48;
+    }
+
+    100% {
+        --web-home-secondary: #e6433d;
+    }
+}
+
+:root {
+    --vp-home-hero-name-color: transparent;
+    --vp-home-hero-name-background: linear-gradient(
+        115deg,
+        var(--web-home-secondary) 8%,
+        var(--web-primary) 88%
+    );
+    --vp-home-hero-image-background-image: linear-gradient(
+        135deg,
+        var(--web-home-secondary) 4%,
+        #f05a48 52%,
+        var(--web-primary) 96%
+    );
+    --vp-home-hero-image-filter: blur(72px);
+}
+
+.VPHero .image-bg {
+    opacity: 0.58;
+    filter: blur(72px) saturate(0.86) !important;
+    transform: translate(-50%, -50%) scale(0.92);
+}
+
+.VPImage.image-src {
+    border-radius: 24%;
+}
+
+.dark .VPHero .image-bg {
+    opacity: 0.66;
+    filter: blur(78px) saturate(0.92) !important;
+}
+
+@media (max-width: 768px) {
+    .VPHero .image-bg {
+        opacity: 0.48;
+        filter: blur(56px) saturate(0.82) !important;
+        transform: translate(-50%, -50%) scale(0.84);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .is-home-page {
+        animation: none;
+    }
+}

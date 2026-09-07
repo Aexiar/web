@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:25
+title: index
+encrypt: false
+permalink: /pages/aed6be
+---
 # 第一章：初识函数
 
 ## 1.1 程序中的 foo、bar 和 baz

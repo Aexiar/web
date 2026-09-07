@@ -1,3 +1,9 @@
+---
+date: 2026-09-07 16:48:25
+title: index
+encrypt: false
+permalink: /pages/b607b4
+---
 # 第一章：函数属性和 arguments
 
 ## 1.1 概述
