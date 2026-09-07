@@ -1,13 +1,13 @@
 name: sync2cnb.yaml
 
-# 在main分支发生push事件时触发。
+# 在 main 分支发生 push 事件时触发。
 on:
   push:
     branches:
       - main
       - master
     paths:
-      - "docs/**" # 只当docs文件夹中的文件发生变化时触发
+      - "docs/**" # 只当 docs 文件夹中的文件发生变化时触发
   workflow_dispatch:
 
 # 设置环境变量
@@ -18,7 +18,7 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: "Sync to CNB Repository"
