@@ -32,7 +32,7 @@ const flowPaths = [
         <p class="web-description">从第一个标签，到每一次流畅交互。<br>系统学习前端开发背后的标准、技术与工程实践。</p>
         <div class="web-actions">
           <a class="web-secondary" :href="withBase('/')"><House :size="17" />首页</a>
-          <a class="web-primary" :href="withBase('/01.前端开发基础/01.初识HTML/')">开启学习之旅<ArrowRight :size="17" /></a>
+          <a class="web-primary" :href="withBase('/guide')">开启学习之旅<ArrowRight :size="17" /></a>
         </div>
         <div class="web-notes"><span>体系清晰</span><span>体验驱动</span><span>持续实践</span></div>
       </div>
