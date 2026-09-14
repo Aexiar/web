@@ -8,7 +8,7 @@ permalink: /pages/e35ed8
 
 ## 1.1 概述
 
-* 我们知道，一个元素除了有`开始标签`、`结束标签`、`文本内容`之外，还有很多`属性`（Attributes）。
+* 我们知道，一个元素除了有 `开始标签`、`结束标签`、`文本内容` 之外，还有很多 `属性`（Attributes）。
 
 ![Attributes - Learn HTML!](./assets/1.png)
 
@@ -41,16 +41,16 @@ permalink: /pages/e35ed8
 ```
 
 * 那么，我们可以将 HTML 标签的属性划分为如下两类：
-  * 标准属性（Attribute）：HTML 标准制定的属性（Attribute），就称为标准属性，也称为全局属性，如：id、class、style 、title 等。
-  * 自定义属性（Attribute）：不是 HTML 标准制定的属性（Attribute），就称为自定义属性，如上文代码中的 name 、age 等。
+  * 标准属性（Attribute）：HTML 标准制定的属性（Attribute），就称为标准属性，也称为全局属性，如：id、class、style、title 等。
+  * 自定义属性（Attribute）：不是 HTML 标准制定的属性（Attribute），就称为自定义属性，如上文代码中的 name、age 等。
 
 > 注意：
 >
-> * HTML 元素的`属性名`是`不区分大小写`的。
+> * HTML 元素的 `属性名` 是 `不区分大小写` 的。
 >
-> * HTML 元素的`属性值`都是`字符串`！
+> * HTML 元素的 `属性值` 都是 `字符串`！
 
-* 浏览器在解析 HTML 元素的时候，会将`对应的属性（Attribute）`创建出来放到`对应的元素对象`上。
+* 浏览器在解析 HTML 元素的时候，会将 `对应的属性（Attribute）` 创建出来放到 `对应的元素对象` 上。
   * 如：id、class 就是全局的 attribute，会有对应的 id、class 属性；
   * 如：href 属性是针对 a 元素的，type、value 属性是针对 input 元素的；
 
@@ -138,7 +138,7 @@ element.removeAttribute(attrName)
 
 ## 2.1 概述
 
-* 元素中的属性称为 Attribute ，而对象中的属性称为 Property；
+* 元素中的属性称为 Attribute，而对象中的属性称为 Property；
 
 ```html
 <!DOCTYPE html>
@@ -170,9 +170,9 @@ element.removeAttribute(attrName)
 
 ## 2.2 元素的属性（Property）的操作
 
-* 可以通过直接访问`对象的属性（Property）`来`读取`和`修改` DOM 元素的`属性（Property）`，并且`标准元素属性（特性，Attribute）`就是`对象的属性（Property）`。
+* 可以通过直接访问 `对象的属性（Property）` 来 `读取` 和 `修改` DOM 元素的 `属性（Property）`，并且 `标准元素属性（特性，Attribute）` 就是 `对象的属性（Property）`。
 
-> 注意：除非特别情况，否则绝大多数，设置和获取属性的时候，推荐使用 Property ，因为它的值默认情况下是有类型的（主要针对于 checked 、selected 、hidden 等）。
+> 注意：除非特别情况，否则绝大多数，设置和获取属性的时候，推荐使用 Property，因为它的值默认情况下是有类型的（主要针对于 checked、selected、hidden 等）。
 
 
 
@@ -209,15 +209,15 @@ element.removeAttribute(attrName)
 
 ## 2.3 元素的属性（特性，Attribute) VS 元素的属性（Property）
 
-* 在 JavaScript 中，Attribute 和 Property是两个不同的概念。
-* Attribute（属性）是 HTML 元素上定义的特性，它们以字符串的形式存在于 HTML 标签中。可以通过`getAttribute()` 和 `setAttribute()` 方法来`读取`和`修改` HTML 元素的属性。
+* 在 JavaScript 中，Attribute 和 Property 是两个不同的概念。
+* Attribute（属性）是 HTML 元素上定义的特性，它们以字符串的形式存在于 HTML 标签中。可以通过 `getAttribute()` 和 `setAttribute()` 方法来 `读取` 和 `修改` HTML 元素的属性。
 
 ```html
 // id、type 和 value 都是元素的 Attribute 
 <input id="myInput" type="text" value="Hello" >
 ```
 
-* Property（属性）是 DOM 对象上的特性，它们以对象属性的形式存在于 DOM 对象中。可以通过`直接访问对象的属性`来`读取`和`修改`DOM元素的属性。
+* Property（属性）是 DOM 对象上的特性，它们以对象属性的形式存在于 DOM 对象中。可以通过 `直接访问对象的属性` 来 `读取` 和 `修改` DOM 元素的属性。
 
 ```js
 // value 是 DOM 对象的 Property
@@ -228,9 +228,9 @@ console.log(input.value); // 输出 "World"
 ```
 
 * 总结：
-  * Attribute 是定义在 HTML 标签中的，而 Property 是定义在 DOM 对象上的。并且绝大多数情况下，标准的 Attribute 就是 Property 。
+  * Attribute 是定义在 HTML 标签中的，而 Property 是定义在 DOM 对象上的。并且绝大多数情况下，标准的 Attribute 就是 Property。
   * Attribute 的值始终是字符串，而 Property 的值可以是任意的 JavaScript 类型。
-  * Attribute 可以通过getAttribute() 和 setAttribute() 方法来读取和修改，而 Property 可以通过直接访问对象的属性来读取和修改。
+  * Attribute 可以通过 getAttribute() 和 setAttribute() 方法来读取和修改，而 Property 可以通过直接访问对象的属性来读取和修改。
   * Attribute 是 HTML 规范中定义的，而 Property 是 JavaScript 语言中的概念。
 
 
@@ -279,15 +279,15 @@ console.log(input.value); // 输出 "World"
 
 * 有的时候，我们需要通过 JavaScript 来动态修改元素的样式，有两种方案：
   * ① 先在 css 中编写对应的样式，通过 JavaScript `给 HTML 元素动态的添加 class` 。
-  * ② 通过 JavaScript 动态的`修改 HTML 元素的 style 属性`。
+  * ② 通过 JavaScript 动态的 `修改 HTML 元素的 style 属性`。
 
 * 开发中如何选择？
-  * 在绝大多数情况下，如果可以动态修改 class 就能完成某个功能的话，更推荐`动态的添加 class`（处于性能的考虑，涉及到浏览器的回流和重绘等知识，后面讲解）。
-  * 对于某些情况下，需要精准的修改某个 CSS 属性的值，那么就可以`修改 style 的属性`。
+  * 在绝大多数情况下，如果可以动态修改 class 就能完成某个功能的话，更推荐 `动态的添加 class`（处于性能的考虑，涉及到浏览器的回流和重绘等知识，后面讲解）。
+  * 对于某些情况下，需要精准的修改某个 CSS 属性的值，那么就可以 `修改 style 的属性`。
 
 ## 4.2 元素的 style 属性
 
-* 如果需要单独修改某一个 CSS 属性，那么就可以通过 style 来操作，并且对于`多个词（multi-word）`属性，那么就使用使用`驼峰式（小驼峰）`。
+* 如果需要单独修改某一个 CSS 属性，那么就可以通过 style 来操作，并且对于 `多个词（multi-word）` 属性，那么就使用使用 `驼峰式（小驼峰）`。
 
 ```js
 box.style.color = 'white'
@@ -296,7 +296,7 @@ box.style.width = '200px'
 box.style.height = '200px'
 ```
 
-* 如果我们通过 `style` 将某种 CSS 的值设置为`空字符串`，那么会`使用 CSS 的默认样式`。
+* 如果我们通过 `style` 将某种 CSS 的值设置为 `空字符串`，那么会 `使用 CSS 的默认样式`。
 
 ```js
 box.style.display = ""
@@ -441,7 +441,7 @@ box.style.display = ""
 ## 4.4 元素的 className 和 classList
 
 * 元素的 `class Attribute`，对应的 `Property` 并非叫 `class`，而是 `className`：
-  * 这是因为 JavaScript 早期是不允许使用 class 这种关键字来作为对象的属性，所以 DOM 规范使用了 className （JSX 也是类似的做法）；
+  * 这是因为 JavaScript 早期是不允许使用 class 这种关键字来作为对象的属性，所以 DOM 规范使用了 className（JSX 也是类似的做法）；
   * 虽然现在 JavaScript 已经没有这样的限制，但是并不推荐，并且依然在使用 `className` 这个名称。
 * 我们可以使用 className 进行赋值，它会替换整个类中的字符串：
 
@@ -449,7 +449,7 @@ box.style.display = ""
 box.className = 'active'
 ```
 
-* 但是，如果我们需要添加和移除某个 class ，就需要使用 classList 属性了，有如下的方法：
+* 但是，如果我们需要添加和移除某个 class，就需要使用 classList 属性了，有如下的方法：
 
 ```js
 // 添加一个类
@@ -616,7 +616,7 @@ element.classList.contains(class)
 </html>
 ```
 
-* 当然，实际开发中，我们更`推荐`使用 `原生的 DOM API` 来操作 DOM 元素等内容，如：
+* 当然，实际开发中，我们更 `推荐` 使用 `原生的 DOM API` 来操作 DOM 元素等内容，如：
 
 ```html
 <!DOCTYPE html>
@@ -666,7 +666,7 @@ element.classList.contains(class)
   * ① 安全性问题：使用 innerHTML 插入的内容会被浏览器解析为 HTML 代码，并执行其中的脚本。如果插入的内容来自用户输入或不受信任的来源，可能会导致 XSS 攻击等安全问题。
   * ② 性能问题：使用 innerHTML 会导致浏览器重新解析整个 HTML 结构，重新构建 DOM 树，这个过程比较耗时。而使用原生的 DOM API，如 createElement、append 等，可以更精确地控制插入位置和方式，减少不必要的 DOM 重构，提高性能。
   * ③ 代码可维护性问题：使用 innerHTML 插入大段的 HTML 代码会使代码结构变得混乱，难以维护。而使用原生的 DOM API，可以更好地组织代码，提高可读性和可维护性。
-  * ④ 丢失事件处理程序：使用 innerHTML 插入元素时，如果已经为某些元素绑定了事件处理程序，那么这些事件处理程序会丢失，需要重新绑定。而使用原生的 DOM API ，可以避免这个问题。
+  * ④ 丢失事件处理程序：使用 innerHTML 插入元素时，如果已经为某些元素绑定了事件处理程序，那么这些事件处理程序会丢失，需要重新绑定。而使用原生的 DOM API，可以避免这个问题。
 
 * 总结：虽然 innerHTML 在某些情况下使用起来更方便，但在大多数情况下，为了安全性、性能和代码可维护性考虑，推荐使用原生的 DOM API 来操作 DOM 元素等内容。
 
@@ -1062,7 +1062,7 @@ node.remove()
 node.cloneNode(boolean)
 ```
 
-* 参数说明：如果参数为 true ，则表示深度复制（会一起复制对应的子元素），默认值是 false 。
+* 参数说明：如果参数为 true，则表示深度复制（会一起复制对应的子元素），默认值是 false。
 
 
 
@@ -1164,12 +1164,12 @@ node.cloneNode(boolean)
 
 ## 6.1 理清概念
 
-* 在 DOM 中，`client` 表示`元素`的`可见区域`，即`元素`的`内部内容部分`。换言之，`clientWidth` 表示`元素内部区域`的`宽度`，`不`包括`元素`的`边框`和`滚动条`（会受到 box-sizing 的影响）。
-* 在 DOM 中，`offset`（在英文中的翻译就是`偏移量`） 表示`元素`在文档中的`位置`和`尺寸`，它包括元素的`内容`、`内边距`、`边框`以及`滚动条`（如果有）。换言之，`offsetWidth` 可以用来获取`元素`在文档中的`总宽度`，包括了`所有可见的部分`（会受到 box-sizing 的影响）。
+* 在 DOM 中，`client` 表示 `元素` 的 `可见区域`，即 `元素` 的 `内部内容部分`。换言之，`clientWidth` 表示 `元素内部区域` 的 `宽度`，`不` 包括 `元素` 的 `边框` 和 `滚动条`（会受到 box-sizing 的影响）。
+* 在 DOM 中，`offset`（在英文中的翻译就是 `偏移量`）表示 `元素` 在文档中的 `位置` 和 `尺寸`，它包括元素的 `内容`、`内边距`、`边框` 以及 `滚动条`（如果有）。换言之，`offsetWidth` 可以用来获取 `元素` 在文档中的 `总宽度`，包括了 `所有可见的部分`（会受到 box-sizing 的影响）。
 
 ## 6.2 概述
 
-* 有的时候，我们需要通过 JavaScript 来获取元素的大小和滚动等信息，此时就需要 clientWidth 、clientHeight 等属性了，如下所示：
+* 有的时候，我们需要通过 JavaScript 来获取元素的大小和滚动等信息，此时就需要 clientWidth、clientHeight 等属性了，如下所示：
 
 ![image-20230730101208160](./assets/3.png)
 
@@ -1181,8 +1181,8 @@ node.cloneNode(boolean)
 * 元素在文档中的位置和尺寸，包括所有可见部分：
   * `offsetWidth`：元素完整的宽度。
   * `offsetHeight`：元素完整的高度。
-  * `offsetLeft`：距离父元素的 x 。
-  * `offsetTop`：距离父元素的 y 。
+  * `offsetLeft`：距离父元素的 x。
+  * `offsetTop`：距离父元素的 y。
 * 滚动条部分：
   * `scrollTop`：滚动部分的高度。
   * `scrollHeight`：整个可滚动的区域高度。
@@ -1267,13 +1267,13 @@ node.cloneNode(boolean)
 
 ## 7.1 概述
 
-* window 的 width 和 height ：
+* window 的 width 和 height：
   * innerWidth、innerHeight：获取 window 窗口的宽度和高度（包含滚动条）。
   * outerWidth、outerHeight：获取 window 窗口的整个宽度和高度（包括调试工具、工具栏）。
   * documentElement.clientHeight、documentElement.clientWidth：获取 html 的宽度和高度（不包含滚动条）
 * window 的滚动位置：
-  * scrollX：X 轴滚动的位置（别名pageXOffset）
-  *  scrollY：Y 轴滚动的位置（别名pageYOffset）
+  * scrollX：X 轴滚动的位置（别名 pageXOffset）
+  *  scrollY：Y 轴滚动的位置（别名 pageYOffset）
 * window 的滚动方法：
   * `scrollBy(x,y)` ：将页面滚动至相对于当前位置的 (x, y) 位置；
   * `scrollTo(pageX,pageY)` ：将页面滚动至绝对坐标；

@@ -153,7 +153,7 @@ permalink: /pages/1b749c
 > 注意：
 >
 > * ①  Apipost 7+ 是国产的测试网络接口的工具，和 Postman 差不多。
-> * ② 关闭 VPN ，防止因为网络原因而造成 Mock 接口测试失败。
+> * ② 关闭 VPN，防止因为网络原因而造成 Mock 接口测试失败。
 
 * ② 新建几个测试接口，尽量是 GET 接口。
 
@@ -173,7 +173,7 @@ permalink: /pages/1b749c
 
 ## 2.1 概述
 
-* 在早期，我们通常会使用高阶函数和回调函数来封装 Ajax （异步）请求库，如下：
+* 在早期，我们通常会使用高阶函数和回调函数来封装 Ajax（异步）请求库，如下：
 
 ```html
 <!DOCTYPE html>
@@ -298,7 +298,7 @@ permalink: /pages/1b749c
 
 ![image-20230823143305796](./assets/7.png)
 
-* 那么，如何解决回调地狱问题？其实最为关键的就是将`异步操作的嵌套方法`改为`同步的链式调用`，这也是 `Promise` 之所以出现的原因。
+* 那么，如何解决回调地狱问题？其实最为关键的就是将 `异步操作的嵌套方法` 改为 `同步的链式调用`，这也是 `Promise` 之所以出现的原因。
 
 
 
@@ -306,8 +306,8 @@ permalink: /pages/1b749c
 
 ## 3.1 概述
 
-* `Promise` 是一个`类`（构造函数），英文翻译`承诺`、`许诺`。`Promise` 是 ES6+ 中引入的，用于解决`回调地狱`和`异步操作`的方案。
-* `Promise` 通过提供一种`结构化`的方式来处理这些问题。它可以被看作是一个承诺，代表着一个异步操作的最终结果（可以是成功的值或失败的原因）。
+* `Promise` 是一个 `类`（构造函数），英文翻译 `承诺`、`许诺`。`Promise` 是 ES6+ 中引入的，用于解决 `回调地狱` 和 `异步操作` 的方案。
+* `Promise` 通过提供一种 `结构化` 的方式来处理这些问题。它可以被看作是一个承诺，代表着一个异步操作的最终结果（可以是成功的值或失败的原因）。
 
 
 
@@ -403,7 +403,7 @@ Promise.prototype.catch()
 
 ![image-20230823162556576](./assets/8.png)
 
-* `executor` 函数是在创建 Promise 对象的时候需要传入的回调函数，`该回调函数会立即被执行`，并且传入了`两个`参数。
+* `executor` 函数是在创建 Promise 对象的时候需要传入的回调函数，`该回调函数会立即被执行`，并且传入了 `两个` 参数。
 
 ```html
 <!DOCTYPE html>
@@ -471,7 +471,7 @@ Promise.prototype.catch()
 
 * 基本的编码流程：
 
-  * 创建 Promise 的实例对象（pending状态），传入 executor 函数。
+  * 创建 Promise 的实例对象（pending 状态），传入 executor 函数。
   * 在 executor 中启动异步任务（定时器、Ajax 请求）。
   * 根据异步任务的结果，做不同的结果： 
     * 如果异步任务成功了，就调用 resolve(res) ，将 Promise 实例的状态变为成功（fulfilled），同时指定成功的 res。
@@ -545,8 +545,8 @@ Promise.prototype.catch()
 
 > 注意：
 >
-> * Promise 实例的状态一旦被确定下来，就不会再被更改，也不能再执行某一个回调函数（resolve 或 reject ）来再次改变状态；换言之，Promise 实例的状态将被锁死，即使在 executor 函数中，再去调用 resolve 或 reject 回调函数，也不会有任何响应（无法改变 Promise 实例的状态）。
-> * 如果一个 Promise 已经被兑现或拒绝，即不再处于待定状态，那么则称之为`已敲定（settled）`。
+> * Promise 实例的状态一旦被确定下来，就不会再被更改，也不能再执行某一个回调函数（resolve 或 reject）来再次改变状态；换言之，Promise 实例的状态将被锁死，即使在 executor 函数中，再去调用 resolve 或 reject 回调函数，也不会有任何响应（无法改变 Promise 实例的状态）。
+> * 如果一个 Promise 已经被兑现或拒绝，即不再处于待定状态，那么则称之为 `已敲定（settled）`。
 > * 一个 Promise 实例指定了多个成功/失败的回调函数，都会被调用。
 
 
@@ -626,12 +626,12 @@ Promise.prototype.catch()
 
 ## 3.3 resolve 不同值的区别（了解）
 
-* 情况一：如果 `resolve` 中传入的是一个`普通值（字符串、数组、数值）`或`对象`以及 `null` 和 `undefined`，则这个值会作为 `then` 回调的`参数`。
+* 情况一：如果 `resolve` 中传入的是一个 `普通值（字符串、数组、数值）` 或 `对象` 以及 `null` 和 `undefined`，则这个值会作为 `then` 回调的 `参数`。
 
-> 注意：一般而言，null 和 undefined ，在实际开发中，是需要规避的。
+> 注意：一般而言，null 和 undefined，在实际开发中，是需要规避的。
 
-* 情况二：如果 `resolve` 中传入的是另外一个 `Promise 对象`，那么这个`新 Promise 对象`会决定`原 Promise 对象`的状态。
-* 情况三：如果 `resolve` 中传入的是一个`对象`，并且这个对象有实现 `then` 方法，那么会执行该 `then` 方法，并且根据 `then` 方法的结果来决定 `Promise` 的状态，此对象称为 `thenable` 对象。
+* 情况二：如果 `resolve` 中传入的是另外一个 `Promise 对象`，那么这个 `新 Promise 对象` 会决定 `原 Promise 对象` 的状态。
+* 情况三：如果 `resolve` 中传入的是一个 `对象`，并且这个对象有实现 `then` 方法，那么会执行该 `then` 方法，并且根据 `then` 方法的结果来决定 `Promise` 的状态，此对象称为 `thenable` 对象。
 
 
 
@@ -811,8 +811,8 @@ then(onFulfilled)
 then(onFulfilled, onRejected)
 ```
 
-* `Promise`实例的 `then()`方法最多接受两个参数：用于 `Promise` 对象`兑现`和`拒绝`情况的回调函数。
-* 它立即返回一个等效的 `Promise`对象，允许你链接到其他 Promise 方法，从而实现 `链式调用`。
+* `Promise` 实例的 `then()` 方法最多接受两个参数：用于 `Promise` 对象 `兑现` 和 `拒绝` 情况的回调函数。
+* 它立即返回一个等效的 `Promise` 对象，允许你链接到其他 Promise 方法，从而实现 `链式调用`。
 
 
 
@@ -847,7 +847,7 @@ then(onFulfilled, onRejected)
 
 * 如果在同一 Promise 对象上两次调用 `then()` 方法（而不是链式调用），则该 Promise 对象将具有两对处理方法。
 * 附加到同一 Promise 对象的所有处理方法总是按照它们添加的顺序调用。
-* 此外，每次调用 `then()` 方法返回的两个 Promise 对象开始了独立的链，不会等待彼此的`敲定（settled）`。
+* 此外，每次调用 `then()` 方法返回的两个 Promise 对象开始了独立的链，不会等待彼此的 `敲定（settled）`。
 
 
 
@@ -966,15 +966,15 @@ then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | Pro
 
 * 既然，then 方法也返回一个新的 Promise 对象实例（其实，内部就是 `new Promise(()=>{})`），那么我们也知道 Promise 是有三种状态的，那么 then 方法返回的新 Promise 对象实例的状态到底是什么？
 
-  * 当 then 方法中的`回调函数本身`在执行的时候，这个新的 Promise 对象实例的状态是 `pending` 状态。
+  * 当 then 方法中的 `回调函数本身` 在执行的时候，这个新的 Promise 对象实例的状态是 `pending` 状态。
 
-  * 当 then 方法中的回调函数返回一个`值`的时候：
+  * 当 then 方法中的回调函数返回一个 `值` 的时候：
 
     * 情况一：返回一个普通值，那么它处于 `fulfilled` 状态，并且将结果作为 `resolve` 的参数。
-    * 情况二：返回一个 Promise 。
+    * 情况二：返回一个 Promise。
     * 情况三：返回一个 thenable 值。
 
-  * 当 then 方法`抛出`一个异常的时候，这个新的 Promise 对象实例的状态是 `reject` 状态。
+  * 当 then 方法 `抛出` 一个异常的时候，这个新的 Promise 对象实例的状态是 `reject` 状态。
 
 * 怎么理解？
 
@@ -1202,9 +1202,9 @@ then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | Pro
 
 ### 3.5.1 Promise 实例的 catch 方法多次调用
 
-* `Promise`实例的`catch()`方法用于注册一个在 Promise 对象被拒绝时调用的函数。
-* 它会立即返回一个等效的 `Promise`对象，这可以允许你`链式调用`其他 Promise 对象的方法。
-* 此方法是 `Promise.prototype.then(undefined, onRejected)`的一种简写形式。
+* `Promise` 实例的 `catch()` 方法用于注册一个在 Promise 对象被拒绝时调用的函数。
+* 它会立即返回一个等效的 `Promise` 对象，这可以允许你 `链式调用` 其他 Promise 对象的方法。
+* 此方法是 `Promise.prototype.then(undefined, onRejected)` 的一种简写形式。
 * `catch()` 方法内部会调用当前 Promise 对象的 `then()` 方法，并将 `undefined` 和 `onRejected` 作为参数传递给 `then()`。
 
 
@@ -1284,7 +1284,7 @@ catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TRes
 
 ## 3.6 Promise 实例的 finally 方法
 
-* 在 ES9 ，Promise 实例上增加了一个新的 finally 方法，表示无论 Promise 实例对象是 `fulfilled` 还是 `rejected` 状态，都会执行的代码。
+* 在 ES9，Promise 实例上增加了一个新的 finally 方法，表示无论 Promise 实例对象是 `fulfilled` 还是 `rejected` 状态，都会执行的代码。
 * Promise 实例上的 finally 方法，通常用来执行清理的操作。
 
 ```html
@@ -1336,7 +1336,7 @@ resolve<T>(value: T | PromiseLike<T>): Promise<Awaited<T>>;
 * 参数的情况：
   * 情况一：参数是一个普通的值或对象。
   * 情况二：参数本身是一个 Promise 对象。
-  * 情况三：参数是一个 thenable 。
+  * 情况三：参数是一个 thenable。
 
 * 相当于：
 
@@ -1516,8 +1516,8 @@ new Promise((resolve,reject) => reject(value))
 Promise.all<T extends readonly unknown[] | []>(values: T): Promise<{ -readonly [P in keyof T]: Awaited<T[P]> }>;
 ```
 
-* 如果多个 Promise 实例的状态都变为 fulfilled 的时候，那么新的 Promise 实例对象的状态就变为 fulfilled ，并且将多个 Promise 实例的返回值组成一个数组作为参数。
-* 如果多个 Promise 实例的状态中有一个状态变为 rejected ，那么新的 Promise 实例对象的状态就变为 rejected ，并且会将第一个状态为 rejected  的 Promise 实例的返回值作为参数。
+* 如果多个 Promise 实例的状态都变为 fulfilled 的时候，那么新的 Promise 实例对象的状态就变为 fulfilled，并且将多个 Promise 实例的返回值组成一个数组作为参数。
+* 如果多个 Promise 实例的状态中有一个状态变为 rejected，那么新的 Promise 实例对象的状态就变为 rejected，并且会将第一个状态为 rejected  的 Promise 实例的返回值作为参数。
 
 
 
@@ -1587,13 +1587,13 @@ Promise.all<T extends readonly unknown[] | []>(values: T): Promise<{ -readonly [
 
 ### 3.7.5 Promise.race 方法
 
-* 方法： 返回一个新的 Promise 实例，以第一个 promise 的敲定而敲定
+* 方法：返回一个新的 Promise 实例，以第一个 promise 的敲定而敲定
 
 ```ts
 Promise.race<T>(values: Iterable<T | PromiseLike<T>>): Promise<Awaited<T>>;
 ```
 
-* race 的中文翻译是`竞争`，表示多个 Promise 实例对象相互竞争，谁先有结果，就使用谁的结果。
+* race 的中文翻译是 `竞争`，表示多个 Promise 实例对象相互竞争，谁先有结果，就使用谁的结果。
 
 
 
@@ -1642,13 +1642,13 @@ Promise.race<T>(values: Iterable<T | PromiseLike<T>>): Promise<Awaited<T>>;
 
 ### 3.7.6 Promise.allSettled 方法
 
-* 方法：将 `多个 Promise 实例对象`  包裹在一起形成一个 `新的 Promise 实例对象`，`新的 Promise 实例对象`在`所有输入的 Promise 实例对象`都已经被 settled（即已经完成或被拒绝）时才会被 resolved。
+* 方法：将 `多个 Promise 实例对象`  包裹在一起形成一个 `新的 Promise 实例对象`，`新的 Promise 实例对象` 在 `所有输入的 Promise 实例对象` 都已经被 settled（即已经完成或被拒绝）时才会被 resolved。
 
 ```ts
 Promise.allSettled<T extends readonly unknown[] | []>(values: T): Promise<{ -readonly [P in keyof T]: PromiseSettledResult<Awaited<T[P]>> }>;
 ```
 
-* `Promise.all()` 方法有一个缺陷：当其中一个 Promise 变为 rejected 状态的时候，新的 Promise 实例对象就会立即变为 rejected 状态；但是，对于哪些 fulfilled 或依旧处于 pending 状态的 Promise ，我们是获取不到结果的。
+* `Promise.all()` 方法有一个缺陷：当其中一个 Promise 变为 rejected 状态的时候，新的 Promise 实例对象就会立即变为 rejected 状态；但是，对于哪些 fulfilled 或依旧处于 pending 状态的 Promise，我们是获取不到结果的。
 
 * `Promise.allSettled()` 返回的 Promise 解析为一个包含所有输入 Promise 结果的数组，每个结果都是一个对象，包含了 Promise 的状态（fulfilled 或 rejected）以及对应的值或原因。这使得我们可以检查每个 Promise 的最终状态和结果，而不需要担心中间某个 Promise 的失败影响整体。
 

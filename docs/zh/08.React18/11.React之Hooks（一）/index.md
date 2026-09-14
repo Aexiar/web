@@ -6,9 +6,9 @@ permalink: /pages/d76e90
 ---
 # 第一章：认识和体验 Hooks（⭐）
 
-## 1.1 为什么需要 Hook ？
+## 1.1 为什么需要 Hook？
 
-* `Hook` 是 React  16.8 的新增特性，它可以让我们`在不编写 class 类式组件的情况下`，使用 `state` 以及`其他的 React 特性`，如：生命周期等。
+* `Hook` 是 React  16.8 的新增特性，它可以让我们 `在不编写 class 类式组件的情况下`，使用 `state` 以及 `其他的 React 特性`，如：生命周期等。
 * 在没有 Hook 情况下的函数式组件：
 
 ```jsx {7}
@@ -46,18 +46,18 @@ function HelloWorld(props) {
 ## 1.2 类式组件存在的问题
 
 * ① `复杂的组件变得难以理解`：
-  * 最初可能在编写类式组件的时候，往往逻辑比较简单，并不会非常复杂；但是，`随着业务的增多`，类式组件会`变得越来越复杂`。
-  * 我们会在类式组件中的 `componentDidMount` 中，编写大量的逻辑代码，如：`网络请求`等。
-  * 对于类式组件而言，实际上`很难拆分`；因为其`逻辑往往混合在一起`，`强行拆分反而会造成过度设计`，`增加代码的复杂度`。
+  * 最初可能在编写类式组件的时候，往往逻辑比较简单，并不会非常复杂；但是，`随着业务的增多`，类式组件会 `变得越来越复杂`。
+  * 我们会在类式组件中的 `componentDidMount` 中，编写大量的逻辑代码，如：`网络请求` 等。
+  * 对于类式组件而言，实际上 `很难拆分`；因为其 `逻辑往往混合在一起`，`强行拆分反而会造成过度设计`，`增加代码的复杂度`。
 * ② `难以理解的 class` ：
-  * 很多人`发现学习 ES6 的 class 是学习 React 的一个障碍`。
-  * 在 class 中，我们`必须要搞清楚 this 的指向到底是谁`，所以需要花费很多精力去学习 this 。
+  * 很多人 `发现学习 ES6 的 class 是学习 React 的一个障碍`。
+  * 在 class 中，我们 `必须要搞清楚 this 的指向到底是谁`，所以需要花费很多精力去学习 this。
 
 
 * ③ `组件的复用状态很难`：
 
-  * 之前的一些状态复用，我们通常会使用`高阶组件`，如：之前 react-redux 中的 `connect()` 函数，这些高阶组件设计的目的就是为了`状态的复用`。
-  * 我们也使用过类似于 `Provider`、`Consumer` 来共享一些状态，但是多次使用 `Consumer` 的时候，会造成代码的`大量嵌套`，不够优雅。
+  * 之前的一些状态复用，我们通常会使用 `高阶组件`，如：之前 react-redux 中的 `connect()` 函数，这些高阶组件设计的目的就是为了 `状态的复用`。
+  * 我们也使用过类似于 `Provider`、`Consumer` 来共享一些状态，但是多次使用 `Consumer` 的时候，会造成代码的 `大量嵌套`，不够优雅。
 
 
 ## 1.3 Hook 的出现
@@ -66,9 +66,9 @@ function HelloWorld(props) {
   * ① Hook `可以让我们在不编写 class 组件的情况下`，`使用 state 以及其他的 React 特性`。
   * ② Hook `可以解决前面提到的问题`。
 * Hook 的使用场景：
-  * ① Hook 的出现`基本可以代替之前所有使用 class 组件的地方`。
-  * ② 如果是旧的项目，并`不需要直接将所有的代码重构为 Hooks` ，因为`它完全向下兼容`，可以`渐进式`的来使用它。
-  * ③ Hook `只能在函数式组件中使用`，`不能`在`类式组件`或`函数式组件`之外的地方使用。
+  * ① Hook 的出现 `基本可以代替之前所有使用 class 组件的地方`。
+  * ② 如果是旧的项目，并 `不需要直接将所有的代码重构为 Hooks` ，因为 `它完全向下兼容`，可以 `渐进式` 的来使用它。
+  * ③ Hook `只能在函数式组件中使用`，`不能` 在 `类式组件` 或 `函数式组件` 之外的地方使用。
 
 ## 1.4 体验 Hook
 
@@ -168,12 +168,12 @@ export default App
 
 > 注意⚠️：
 >
-> * ① 难道没有发现，函数式组件结合 Hooks ，整个代码变得更为简洁?
-> * ② 难道没有发现，函数式组件结合 Hooks ，我们再也没有考虑 this 相关的问题？
+> * ① 难道没有发现，函数式组件结合 Hooks，整个代码变得更为简洁？
+> * ② 难道没有发现，函数式组件结合 Hooks，我们再也没有考虑 this 相关的问题？
 
-## 1.5 什么是 Hook ？
+## 1.5 什么是 Hook？
 
-* Hook 是一些可以让我们，在函数式组件里`“钩入（hook into）”` React `State` 及`生命周期`等特性的`函数`。
+* Hook 是一些可以让我们，在函数式组件里 `“钩入（hook into）”` React `State` 及 `生命周期` 等特性的 `函数`。
 * Hook 不依赖在 class 组件中使用 —— 这使得我们不使用 class 也能使用 React。
 * React 内置了一些像 `useState` 这样的 Hook。我们也可以创建我们自己的 Hook 来复用不同组件之间的状态逻辑。
 
@@ -208,13 +208,13 @@ export default memo(CounterFunction)
 
 * ② `只在 React 函数中调用 Hook`：**不要在普通的 JavaScript 函数中调用 Hook。**
   * 我们可以 `在 React 的函数组件中调用 Hook`，
-  * 我们可以`在自定义 Hook 中调用其他 Hook`。
+  * 我们可以 `在自定义 Hook 中调用其他 Hook`。
 
 > 注意⚠️：
 >
-> * 自定义 Hook 是一个函数，其名称以 “`use`” 开头，函数内部可以调用其他的 Hook。
-> * 通常而言，`Hook` 指的是类似于 useState() 、useEffect() 之类的`函数`。
-> * 通常而言，`Hooks`  指的是 useState() 、useEffect() 之类的`函数的统称`。
+> * 自定义 Hook 是一个函数，其名称以“`use`”开头，函数内部可以调用其他的 Hook。
+> * 通常而言，`Hook` 指的是类似于 useState() 、useEffect() 之类的 `函数`。
+> * 通常而言，`Hooks`  指的是 useState() 、useEffect() 之类的 `函数的统称`。
 
 
 
@@ -223,16 +223,16 @@ export default memo(CounterFunction)
 ## 2.1 useState 
 
 * State Hook 的 API 就是 `useState()` 函数：
-  * 通过在函数式组件中调用`useState()` 函数，可以给当前组件中添加一些内部的 state ，React 会在重新渲染的时候保留这个 state 。
+  * 通过在函数式组件中调用 `useState()` 函数，可以给当前组件中添加一些内部的 state，React 会在重新渲染的时候保留这个 state。
   * `useState()` 函数的唯一参数就是初始化 state，如：`useState(0)`。和 `this.setState()` 不同的是，不一定是对象，可以是任意类型，如：`true` 、`0` 、`'你好啊'` 等。并且这个初始化的 state 参数只有在第一次渲染的时候才会使用。
-  * `useState()` 函数会返回一对值：`[当前状态，更新状态的函数]`，如果学过 TS 的同学，可以理解为`元组（Tuple）`。
-    * 我们可以在事件处理函数（onClick 等）或其他一些合适的地方通过`更新状态的函数`来`更改`当前的`状态`。
-    * `更新状态的函数`类似于类式组件中的 `this.setState()` ，但是它不会将新的 state 和旧的 state 进行合并。
+  * `useState()` 函数会返回一对值：`[当前状态，更新状态的函数]`，如果学过 TS 的同学，可以理解为 `元组（Tuple）`。
+    * 我们可以在事件处理函数（onClick 等）或其他一些合适的地方通过 `更新状态的函数` 来 `更改` 当前的 `状态`。
+    * `更新状态的函数` 类似于类式组件中的 `this.setState()` ，但是它不会将新的 state 和旧的 state 进行合并。
 
-> 注意⚠️：之所以叫 useState ，而不是 `createState` 的原因在于：
+> 注意⚠️：之所以叫 useState，而不是 `createState` 的原因在于：
 >
-> * `create` 单词的语义不是很准确，因为 state 只会在组件首次渲染的时候被创建，在下次重新渲染的时候，`useState`  返回给我们的是当前的 state 。
-> * 如果每次调用，都创建新的 state ，就和 React 内部保存的 state 语义冲突了。
+> * `create` 单词的语义不是很准确，因为 state 只会在组件首次渲染的时候被创建，在下次重新渲染的时候，`useState`  返回给我们的是当前的 state。
+> * 如果每次调用，都创建新的 state，就和 React 内部保存的 state 语义冲突了。
 > * 这就是 Hook 为什么总是以 use 开头的其中一个原因。
 
 * 当然，我们也可以在一个组件中定义多个变量和复杂的变量，如：数组和对象等。
@@ -255,8 +255,8 @@ function ExampleWithManyStates() {
 
 ### 2.2.1 概述
 
-* 之前，我们在 React 的类式组件中通过`生命周期`函数，进行`数据获取`、`订阅`或者`手动修改 DOM` 等，React 官方将`这些操作`统称为`副作用（Effect）`，简称`作用`。
-* `useEffect` 就是一个 Effect Hook，给函数组件增加了操作`副作用`的能力。它跟 class 组件中的 `componentDidMount`、`componentDidUpdate` 和 `componentWillUnmount` 具有相同的用途，只不过被合并成了一个 API 。
+* 之前，我们在 React 的类式组件中通过 `生命周期` 函数，进行 `数据获取`、`订阅` 或者 `手动修改 DOM` 等，React 官方将 `这些操作` 统称为 `副作用（Effect）`，简称 `作用`。
+* `useEffect` 就是一个 Effect Hook，给函数组件增加了操作 `副作用` 的能力。它跟 class 组件中的 `componentDidMount`、`componentDidUpdate` 和 `componentWillUnmount` 具有相同的用途，只不过被合并成了一个 API。
 
 ### 2.2.2 案例
 
@@ -364,9 +364,9 @@ export default App
 
 ### 2.2.3 useEffect 解析
 
-* 通过 `useEffect` 这个 Hook，可以告诉 Reac`t 需要在渲染后执行的某些操作`。
-* useEffect `要求我们传入一个回调函数`，在 React `执行完更新 DOM 操作之后`，就`会回调这个函数`。
-* 默认情况下，无论是`首次渲染`，还是之后的`每次更新`操作，`都会执行这个回调函数`。
+* 通过 `useEffect` 这个 Hook，可以告诉 Reac `t 需要在渲染后执行的某些操作`。
+* useEffect `要求我们传入一个回调函数`，在 React `执行完更新 DOM 操作之后`，就 `会回调这个函数`。
+* 默认情况下，无论是 `首次渲染`，还是之后的 `每次更新` 操作，`都会执行这个回调函数`。
 
 > 注意⚠️：
 >
@@ -377,7 +377,7 @@ export default App
 
 #### 2.2.4.1 概述
 
-* 有的时候，我们只想在 React 更新 DOM 之后`运行一些额外的代码`，如：发送网络请求、手动更新 DOM、记录日志等；这些都是很常见的无需清除的 Effect 操作。因为我们在执行完这些操作会后，就可以忽略它们了，以`类式组件`和`函数式组件`为例，展示如何实现这些 Effect 的，即：
+* 有的时候，我们只想在 React 更新 DOM 之后 `运行一些额外的代码`，如：发送网络请求、手动更新 DOM、记录日志等；这些都是很常见的无需清除的 Effect 操作。因为我们在执行完这些操作会后，就可以忽略它们了，以 `类式组件` 和 `函数式组件` 为例，展示如何实现这些 Effect 的，即：
 
 ```jsx {9-11,13-15}
 import {PureComponent} from "react"
@@ -448,9 +448,9 @@ export default memo(CounterFunction)
 > 注意⚠️：
 >
 > * 对于函数式组件而言，默认情况下，useEffect() 会在第一次渲染之后立即执行，之后每次更新的时候都会再次执行。这样，React 保证了每次运行 Effect 的同时，DOM 已经更新完毕了。
-> * 我们可以发现 useEffect() 要求传递的是回调函数，这意味着每次渲染的时候，在 Effect 中都是获取的最新的 state ，不用担心 state 过期。
+> * 我们可以发现 useEffect() 要求传递的是回调函数，这意味着每次渲染的时候，在 Effect 中都是获取的最新的 state，不用担心 state 过期。
 
-* 但是，有的时候，我们要需要`清除 Effect` ，如：`事件总线`或 Redux 中手动调用 `subscribe` 等。在这种情况下，清除Effect 工作非常重要，可以防止内存泄露！！！
+* 但是，有的时候，我们要需要 `清除 Effect` ，如：`事件总线` 或 Redux 中手动调用 `subscribe` 等。在这种情况下，清除 Effect 工作非常重要，可以防止内存泄露！！！
 * useEffect 函数的 TS 定义：
 
 ```ts
@@ -548,8 +548,8 @@ export default memo(ClockFunction)
 
 > 注意⚠️：
 >
-> * React 的 useEffect 认为`添加定时器`或`删除定时器`的逻辑是做同样的副作用；换言之，这些代码之间内部`具有紧密性`，所以 useEffect  的设计是在同一个地方执行，即`如果 effect 返回一个函数，`React 将会在执行清除操作时候调用它。
-> * React 会在组件重新渲染或组件携带的时候清除 Effect ；换言之，就是调用返回的回调函数。因为默认情况下，useEffect 会在每次渲染的时候都执行 Effect ，这样就可以对当前 Effect 之前的上一个 Effect 进行清除；但是，这样的性能依然还是很低，下文将会再次优化。
+> * React 的 useEffect 认为 `添加定时器` 或 `删除定时器` 的逻辑是做同样的副作用；换言之，这些代码之间内部 `具有紧密性`，所以 useEffect  的设计是在同一个地方执行，即 `如果 effect 返回一个函数，` React 将会在执行清除操作时候调用它。
+> * React 会在组件重新渲染或组件携带的时候清除 Effect；换言之，就是调用返回的回调函数。因为默认情况下，useEffect 会在每次渲染的时候都执行 Effect，这样就可以对当前 Effect 之前的上一个 Effect 进行清除；但是，这样的性能依然还是很低，下文将会再次优化。
 > * 我们并不一定需要为 Effect 中返回的函数命名，上述命名为 `cleanup` 仅仅为了表明是函数的目的，我们完全可以返回一个箭头函数或者起其它的名字。
 
 * 其中，App.jsx
@@ -600,7 +600,7 @@ export default App
 
 ### 2.2.5 使用多个 Effect 实现关注点分离
 
-* 使用 Hook 的其中一个`目的`：就是要解决 class 中生命周期函数中，经常包含不相关的逻辑，但是却又把相关逻辑分离到了几个不同方法中的问题，即：
+* 使用 Hook 的其中一个 `目的`：就是要解决 class 中生命周期函数中，经常包含不相关的逻辑，但是却又把相关逻辑分离到了几个不同方法中的问题，即：
 
 ```jsx {23,29,34,39}
 import React from "react"
@@ -654,7 +654,7 @@ export default ClockClass
 > * 我们不难发现，对于设置 document.title 而言，代码被分割到 componentDidMount 和 componentDidUpdate 中；
 > * 而对于设置定时器而言，代码被分割到 componentDidMount 和 componentWillUnmount 中。
 
-* 而 Hook 可以解决这个问题，我们可以像使用多个 state 的 Hook 一样，使用多个 Effect ，即就不相关逻辑分离到不同的 Effect 中：
+* 而 Hook 可以解决这个问题，我们可以像使用多个 state 的 Hook 一样，使用多个 Effect，即就不相关逻辑分离到不同的 Effect 中：
 
 ```jsx {7-17,19-22}
 import React, {memo, useEffect, useState} from "react";
@@ -692,7 +692,7 @@ export default memo(ClockFunction)
 > 注意⚠️：
 >
 > * `Hook 允许我们按照代码的用途分离他们`，而不是像生命周期函数那样。
-> * React 将按照 Effect 声明的顺序依次调用组件中的每一个 Effect 。
+> * React 将按照 Effect 声明的顺序依次调用组件中的每一个 Effect。
 
 ### 2.2.6 通过跳过 Effect 进行性能优化
 
@@ -709,11 +709,11 @@ componentDidUpdate(prevProps, prevState) {
 
 > 注意⚠️：
 >
-> * 像一些`网络请求`、`订阅`或`取消订阅`之类的操作，我们在类式组件中，也可以通过`componentDidUpdate` 中添加对 `prevProps` 或 `prevState` 的比较逻辑解决。
-> * 有的时候，`多次执行`会`导致`一定的`性能`问题。
+> * 像一些 `网络请求`、`订阅` 或 `取消订阅` 之类的操作，我们在类式组件中，也可以通过 `componentDidUpdate` 中添加对 `prevProps` 或 `prevState` 的比较逻辑解决。
+> * 有的时候，`多次执行` 会 `导致` 一定的 `性能` 问题。
 > * 当然，实际开发中，我们通常会使用 `PureComponent` 类，因为其内部实现了 `state` 或 `props` 的浅层比较。
 
-* 但是，如果使用的是 useEffect 的 Hook API，我们可以通过传递`数组`作为 `useEffect` 的`第二个`可选参数来跳过 Effect 的调用，即受`谁`的影响：
+* 但是，如果使用的是 useEffect 的 Hook API，我们可以通过传递 `数组` 作为 `useEffect` 的 `第二个` 可选参数来跳过 Effect 的调用，即受 `谁` 的影响：
 
 ```jsx {3}
 useEffect(() => {
@@ -722,7 +722,7 @@ useEffect(() => {
 ```
 
 * 如果一个 useEffect() 的 Hook，我们不希望它依赖任何其他的内容（第一次渲染，还是会调用的；因为至少要调用一次），也可以传递一个空的数组：`[]`。
-* 换言之，在类式组件中使用 useEffect() 的 Hook，并将空数组 `[]` 作为 `useEffect` 的`第二个`可选参数，可以用来模拟类式组件的 `componentDidUpdate` 生命周期函数。
+* 换言之，在类式组件中使用 useEffect() 的 Hook，并将空数组 `[]` 作为 `useEffect` 的 `第二个` 可选参数，可以用来模拟类式组件的 `componentDidUpdate` 生命周期函数。
 
 ```jsx {12}
 import React, {memo, useEffect, useState} from "react";
@@ -751,9 +751,9 @@ export default memo(ClockFunction)
 
 > 注意⚠️：
 >
-> * 之前应该学过，`React.memo()` 函数，就是一个高阶组件。但是，该函数`仅仅`检查 `props` 的变更。
+> * 之前应该学过，`React.memo()` 函数，就是一个高阶组件。但是，该函数 `仅仅` 检查 `props` 的变更。
 > * 换言之，如果函数式组件被 `React.memo()` 函数包裹，其内部实现中有 useState()、useReducer() 或 useContext() 之类的 Hook 的时候，当 state 或 context 发生变化的时候，组件依然会重新渲染。
-> * 所以，在使用 `React.memo()` 函数的时候，依然需要通过传递`数组`作为 `useEffect` 的第二个可选参数来跳过 Effect 的调用，以便提高性能。
+> * 所以，在使用 `React.memo()` 函数的时候，依然需要通过传递 `数组` 作为 `useEffect` 的第二个可选参数来跳过 Effect 的调用，以便提高性能。
 
 
 
@@ -763,8 +763,8 @@ export default memo(ClockFunction)
 
 ### 3.1.1 概述
 
-* 在之前的开发中，我们要在`组件`中共享 Context 有如下的两种方式：
-* ① 如果是`类式组件`，可以通过 `static contextType = Context 对象`的方式，让类组件在内部通过 `this.context` 获取。
+* 在之前的开发中，我们要在 `组件` 中共享 Context 有如下的两种方式：
+* ① 如果是 `类式组件`，可以通过 `static contextType = Context 对象` 的方式，让类组件在内部通过 `this.context` 获取。
 
 ```jsx {7，24}
 import React from 'react'
@@ -899,8 +899,8 @@ const value = useContext(context对象);
 
 > 注意⚠️：
 >
-> * useContext(context对象) 只能读取 context 的值以及订阅 context 的变化。
-> * 换言之，我们依然需要在上层组件树中通过 `<XXXContext.Provider value={xxxx}>` 来为下层组件提供 context 。
+> * useContext(context 对象) 只能读取 context 的值以及订阅 context 的变化。
+> * 换言之，我们依然需要在上层组件树中通过 `<XXXContext.Provider value={xxxx}>` 来为下层组件提供 context。
 
 ### 3.1.2 案例
 
@@ -991,7 +991,7 @@ const [state, dispatch] = useReducer(reducer, initialArg, init);
 ```
 
 * 它接收一个形如 `(state, action) => newState` 的 reducer，并返回当前的 state 以及与其配套的 `dispatch` 方法。
-* 在某些场景下，`useReducer` 会比 `useState` 更适用，例如： state 逻辑较复杂且包含多个子值，或者下一个 state 依赖于之前的 state 等。并且，使用 `useReducer` 还能给那些会触发深更新的组件做性能优化，因为`我们可以子组件传递 dispatch 而不是回调函数`。
+* 在某些场景下，`useReducer` 会比 `useState` 更适用，例如：state 逻辑较复杂且包含多个子值，或者下一个 state 依赖于之前的 state 等。并且，使用 `useReducer` 还能给那些会触发深更新的组件做性能优化，因为 `我们可以子组件传递 dispatch 而不是回调函数`。
 
 ### 3.2.1 案例
 
@@ -1184,11 +1184,11 @@ function App() {
 export default memo(App)
 ```
 
-* 可以通过`浏览器`的`控制台`来查看：
+* 可以通过 `浏览器` 的 `控制台` 来查看：
 
 ![](./assets/13.gif)
 
-* 从上图看，也没有什么毛病，结果完全正确；但是，如果我更新的不是 count ，而是 message ？
+* 从上图看，也没有什么毛病，结果完全正确；但是，如果我更新的不是 count，而是 message？
 
 ```jsx {18,25-28,38}
 import {memo, useState} from "react"
@@ -1240,19 +1240,19 @@ function App() {
 export default memo(App)
 ```
 
-* 可以通过`浏览器`的`控制台`来查看：
+* 可以通过 `浏览器` 的 `控制台` 来查看：
 
 ![](./assets/14.gif)
 
-* 我们不难发现，我们改变的是 message ，不是 count ；但是，子组件还是重新渲染了；其实，我们想要的是，如果我们没有改变 count ，那么子组件就不应该重新渲染。
-* 当然，这是 React 的`渲染机制`引起的，即：`在默认情况下，当一个组件重新渲染的时候，React 将会递归渲染它的所有子组件`。这对于不需要大量计算去重新渲染的组件来说影响很小；但是，如果子组件过大，甚至出现嵌套子组件，那么性能将会产生问题。
+* 我们不难发现，我们改变的是 message，不是 count；但是，子组件还是重新渲染了；其实，我们想要的是，如果我们没有改变 count，那么子组件就不应该重新渲染。
+* 当然，这是 React 的 `渲染机制` 引起的，即：`在默认情况下，当一个组件重新渲染的时候，React 将会递归渲染它的所有子组件`。这对于不需要大量计算去重新渲染的组件来说影响很小；但是，如果子组件过大，甚至出现嵌套子组件，那么性能将会产生问题。
 * 此时，就需要使用 useCallback 来解决了，其定义如下：
 
 ```jsx
 const cachedFn = useCallback(fn, dependencies)
 ```
 
-* 其中，`fn` 就是`想要缓存的函数`。此函数可以接受任何参数并且返回任何值。React 将会在初次渲染而非调用时返回该函数。当进行下一次渲染时，如果 `dependencies` 相比于上一次渲染时没有改变，那么 React 将会返回相同的函数。否则，React 将返回在最新一次渲染中传入的函数，并且将其缓存以便之后使用。React 不会调用此函数，而是返回此函数。你可以自己决定何时调用以及是否调用。
+* 其中，`fn` 就是 `想要缓存的函数`。此函数可以接受任何参数并且返回任何值。React 将会在初次渲染而非调用时返回该函数。当进行下一次渲染时，如果 `dependencies` 相比于上一次渲染时没有改变，那么 React 将会返回相同的函数。否则，React 将返回在最新一次渲染中传入的函数，并且将其缓存以便之后使用。React 不会调用此函数，而是返回此函数。你可以自己决定何时调用以及是否调用。
 * 其中，`dependencies` 就是更新 `fn` 的所有响应式值的一个列表（数组）。响应式值包括 props、state，和所有在组件内部直接声明的变量和函数。React 使用 [`Object.is`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/is) 比较每一个依赖和它的之前的值。
 * 此时，就可以这么优化了：
 
@@ -1308,7 +1308,7 @@ function App() {
 export default memo(App)
 ```
 
-* 可以通过`浏览器`的`控制台`来查看：
+* 可以通过 `浏览器` 的 `控制台` 来查看：
 
 ![](./assets/15.gif)
 
@@ -1349,11 +1349,11 @@ function App() {
 export default memo(App)
 ```
 
-* 可以通过`浏览器`的`控制台`来查看：
+* 可以通过 `浏览器` 的 `控制台` 来查看：
 
 ![](./assets/16.gif)
 
-* 在 Vue 中，我们可以通过`计算属性`来解决；但是，在 React 中，我们只能通过 `useMemo` 来解决，会在每次重新渲染的时候能够缓存计算的结果，定义如下：
+* 在 Vue 中，我们可以通过 `计算属性` 来解决；但是，在 React 中，我们只能通过 `useMemo` 来解决，会在每次重新渲染的时候能够缓存计算的结果，定义如下：
 
 ```jsx
 const cachedValue = useMemo(()=> {
@@ -1396,13 +1396,13 @@ function App() {
 export default memo(App)
 ```
 
-* 可以通过`浏览器`的`控制台`来查看：
+* 可以通过 `浏览器` 的 `控制台` 来查看：
 
 ![](./assets/17.gif)
 
 > 注意⚠️：
 >
-> * useMemo 返回值的是`缓存的值`（如果是普通的值，其实没什么意义；但是对于对象，函数等，就有意义了），而 useCallback 返回的是`缓存的函数`。
+> * useMemo 返回值的是 `缓存的值`（如果是普通的值，其实没什么意义；但是对于对象，函数等，就有意义了），而 useCallback 返回的是 `缓存的函数`。
 > * useMemo 的用法是这样的：`useMemo(() => fn|xxx , [])`。
 > * useCallback 的用法是这样的：`useCallback(fn, [])`。
 
@@ -1412,7 +1412,7 @@ export default memo(App)
 
 ## 5.1 概述
 
-* 在`类式组件`中，我们是通过 `React.createRef` 来操作 DOM 的，即：
+* 在 `类式组件` 中，我们是通过 `React.createRef` 来操作 DOM 的，即：
 
 ```jsx {10,15,23}
 import React from 'react'
@@ -1575,7 +1575,7 @@ export default memo(App)
 
 ## 5.3 向组件暴露 ref
 
-* 需求：有的时候，想染父组件来操作子组件中的 DOM ，如果子组件是类式组件，就需要使用 forwardRef 高阶组件了。
+* 需求：有的时候，想染父组件来操作子组件中的 DOM，如果子组件是类式组件，就需要使用 forwardRef 高阶组件了。
 
 ![](./assets/20.gif)
 
@@ -1705,7 +1705,7 @@ function App() {
 export default memo(App)
 ```
 
-* 我们通过传递依赖项 count ，来多次渲染中缓存一个函数的问题（当然，如果依赖项 count 发生改变，increment 就会产生新的函数）；
+* 我们通过传递依赖项 count，来多次渲染中缓存一个函数的问题（当然，如果依赖项 count 发生改变，increment 就会产生新的函数）；
 * 如果我们不设置依赖项 count，即：
 
 ```jsx {24}
@@ -1760,7 +1760,7 @@ function App() {
 export default memo(App)
 ```
 
-* 就会产生`闭包陷阱`，每次都是 1 ，很不好；此时，就可以通过 useRef 来进行优化，即：
+* 就会产生 `闭包陷阱`，每次都是 1，很不好；此时，就可以通过 useRef 来进行优化，即：
 
 ```jsx {20-21,25,27}
 import {memo, useCallback, useRef, useState} from "react"
@@ -1830,7 +1830,7 @@ useImperativeHandle(ref, createHandle, dependencies?)
 ```
 
 * 参数：
-  * ref ：通常是从 `forwardRef` 高阶组件中获取的第二个参数。
+  * ref：通常是从 `forwardRef` 高阶组件中获取的第二个参数。
   * createHandle：是一个函数，没有参数，可以返回任何想要暴露的句柄，可以是任何类型。但是，通常是一个包含想要暴露方法的对象。
   * `dependencies` 就是更新 `fn` 的所有响应式值的一个列表（数组）。响应式值包括 props、state，和所有在组件内部直接声明的变量和函数。React 使用 [`Object.is`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/is) 比较每一个依赖和它的之前的值。
 
@@ -1873,7 +1873,7 @@ function App() {
 export default memo(App)
 ```
 
-* 我们是通过 forwardRef 将 ref 转发到子组件；此时，子组件就拿到父组件中创建的 ref ，绑定到自己的某一个元素中。但是这种方法带来的坏处是：我们将整个子组件的 DOM 直接暴露给父组件，不是很安全！！！那么，我们可以看看 Vue 是怎么解决的：
+* 我们是通过 forwardRef 将 ref 转发到子组件；此时，子组件就拿到父组件中创建的 ref，绑定到自己的某一个元素中。但是这种方法带来的坏处是：我们将整个子组件的 DOM 直接暴露给父组件，不是很安全！！！那么，我们可以看看 Vue 是怎么解决的：
 
 ![image-20240111093216072](./assets/22.png)
 
@@ -1881,7 +1881,7 @@ export default memo(App)
 
 > 注意⚠️：
 >
-> * **不要滥用 ref。** 你应当仅在你没法通过 prop 来表达 `命令式`行为的时候才使用 ref：例如，滚动到指定节点、聚焦某个节点、触发一次动画，以及选择文本等等。
+> * **不要滥用 ref。** 你应当仅在你没法通过 prop 来表达 `命令式` 行为的时候才使用 ref：例如，滚动到指定节点、聚焦某个节点、触发一次动画，以及选择文本等等。
 > * **如果可以通过 prop 实现，那就不应该使用 ref**。例如，你不应该从一个 `Model` 组件暴露出 `{open, close}` 这样的命令式句柄，最好是像 `<Modal isOpen={isOpen} />` 这样，将 `isOpen` 作为一个 prop。`副作用` 可以帮你通过 prop 来暴露一些命令式的行为。
 
 ## 6.2 案例

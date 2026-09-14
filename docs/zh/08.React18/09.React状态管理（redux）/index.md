@@ -8,7 +8,7 @@ permalink: /pages/6b3247
 
 ## 1.1 概述
 
-* Redux Toolkit 包旨在成为编写 Redux 逻辑的标准方法。它最初是为了帮助解决有关 Redux 的`三个常见问题`而创建的：
+* Redux Toolkit 包旨在成为编写 Redux 逻辑的标准方法。它最初是为了帮助解决有关 Redux 的 `三个常见问题` 而创建的：
   * ① 配置 Redux store 太复杂了。
   * ② 必须添加很多软件包才能让 Redux 做任何有用的事情。
   * ③ Redux 需要太多样板代码。
@@ -16,7 +16,7 @@ permalink: /pages/6b3247
 > 注意⚠️：
 >
 > * 很多人为了简化称呼，也将 Redux Toolkit 称为 `RTK`。
-> * Redux Toolkit `仅`涵盖了 Redux 逻辑 —— 仍然需要使用 React-Redux 使得 React 组件与 Redux store 进行交互。
+> * Redux Toolkit `仅` 涵盖了 Redux 逻辑 —— 仍然需要使用 React-Redux 使得 React 组件与 Redux store 进行交互。
 
 * 在此，有必要将使用了 `Redux Tookit` 工具包的项目和原生 `Reux` 的项目进行对比：
 
@@ -24,9 +24,9 @@ permalink: /pages/6b3247
 
 > 温馨提示：难道，没有觉得代码量少了很多吗？
 
-* Redux Toolkit 还包括强大的数据获取和缓存功能，我们称之为`“RTK Query”`。它作为一组单独的入口点包含在包中。它是可选的，但可以消除自己手动编写数据获取逻辑的需要。
+* Redux Toolkit 还包括强大的数据获取和缓存功能，我们称之为 `“RTK Query”`。它作为一组单独的入口点包含在包中。它是可选的，但可以消除自己手动编写数据获取逻辑的需要。
 * Redux Toolkit 建立在官方建议的最佳实践中，`简化了大多数 Redux 任务`，`防止了常见错误`，`并使编写 Redux 应用程序更加容易`。
-* Redux Toolkit 包含了有助于简化许多常见场景的工具，包括：`配置 Store`， `创建 reducer 并编写 immutable 更新逻辑`， 甚至还包含 `一次性创建整个 State 的 “Slice”`。
+* Redux Toolkit 包含了有助于简化许多常见场景的工具，包括：`配置 Store`， `创建 reducer 并编写 immutable 更新逻辑`，甚至还包含 `一次性创建整个 State 的 “Slice”`。
 
 ## 1.2 安装
 
@@ -53,12 +53,12 @@ npx create-react-app my-app --template redux-typescript
   * `createReducer()`：允许您向 case reducer 函数提供操作类型的查找表，而不是编写 switch 语句。此外，它会自动使用 immer 库，让您使用普通的可变代码编写更简单的不可变更新，例如 `'state.todos[3].completed = true'`。
   * `createAction()`：生成给定 action type 字符串的 action creator 函数。该函数本身已定义了 `toString()`，因此可以代替常量类型使用。
   * `createSlice()`：接收一组 reducer 函数的对象，一个 slice 切片名和初始状态 initial state，并自动生成具有相应 action creator 和 action type 的 slice reducer。
-  * `combineSlices()`：将多个切片组合成一个缩减器，并允许在初始化后`“延迟加载”`切片。
-  * `createAsyncThunk()`：接收一个 action type 字符串和一个返回值为 promise 的函数, 并生成一个 thunk 函数，这个 thunk 函数可以基于之前那个 promise ，dispatch 一组 type 为 `pending/fulfilled/rejected` 的 action。
+  * `combineSlices()`：将多个切片组合成一个缩减器，并允许在初始化后 `“延迟加载”` 切片。
+  * `createAsyncThunk()`：接收一个 action type 字符串和一个返回值为 promise 的函数，并生成一个 thunk 函数，这个 thunk 函数可以基于之前那个 promise，dispatch 一组 type 为 `pending/fulfilled/rejected` 的 action。
   * `createEntityAdapter()`：生成一系列可复用的 reducer 和 selector，从而管理 store 中的规范化数据。
-  * `createSelector`来源于 [Reselect](https://github.com/reduxjs/reselect) 库，重新 export 出来以方便使用。
+  * `createSelector` 来源于 [Reselect](https://github.com/reduxjs/reselect) 库，重新 export 出来以方便使用。
 
-* Redux Toolkit 更是提供一个新的 [**RTK Query 数据请求 API**](https://redux-toolkit.js.org/rtk-query/overview)。RTK Query 是为 Redux 打造数据请求和缓存的强有力的工具。 它设计出来就是为了 web 应用中加载数据的通用用例，免得手动去写数据请求和缓存的逻辑。
+* Redux Toolkit 更是提供一个新的 [**RTK Query 数据请求 API**](https://redux-toolkit.js.org/rtk-query/overview)。RTK Query 是为 Redux 打造数据请求和缓存的强有力的工具。它设计出来就是为了 web 应用中加载数据的通用用例，免得手动去写数据请求和缓存的逻辑。
 
 ## 1.3 扫清概念
 
@@ -74,11 +74,11 @@ npx create-react-app my-app --template redux-typescript
 
 * 甚至，你可能会看到以下的示意图：
 
-![Redux的工作流程.png](./assets/2.png)
+![Redux 的工作流程.png](./assets/2.png)
 
 > 注意⚠️：上面的示意图，完全没毛病，就是根据官方对于 action 的定义；可以将 action 写成 `{type: '',data: ''}`、`{type: '',text: ''}` 或 `{type: '',payload: ''}`。
 
-* 但是，对于 `Redux Toolkit` 而言，action `必须`是包含 type 属性和 payload 属性的 JavaScript 对象，如：
+* 但是，对于 `Redux Toolkit` 而言，action `必须` 是包含 type 属性和 payload 属性的 JavaScript 对象，如：
 
 ```js
 const addTodoAction = {
@@ -90,11 +90,11 @@ const addTodoAction = {
 > 注意⚠️：
 >
 > * 在普通的 redux 项目中，type 只要是字符串就可以了；
-> * 但是，在 `Redux Toolkit` 中，type 必须写成 `"域/事件名称"` 的格式，其中第一部分是这个 action 所属的`特征`或`类别`，第二部分是`发生的具体事情`（了解即可，因为 `Redux Toolkit` 会在底层帮助我们生成）。
+> * 但是，在 `Redux Toolkit` 中，type 必须写成 `"域/事件名称"` 的格式，其中第一部分是这个 action 所属的 `特征` 或 `类别`，第二部分是 `发生的具体事情`（了解即可，因为 `Redux Toolkit` 会在底层帮助我们生成）。
 
 ### 1.3.2 action creator
 
-* 在普通的 redux 项目中，我们一般会通过 action creator （函数）来帮助我们生成一个 action 对象；目的是，让我们不必每次都手动编写 action 。
+* 在普通的 redux 项目中，我们一般会通过 action creator（函数）来帮助我们生成一个 action 对象；目的是，让我们不必每次都手动编写 action。
 
 ```js
 const INCREMENT = "counter/increment"
@@ -138,7 +138,7 @@ const action = incrementAction() // 相当于 {type: 'counter/increment'}
 const action = incrementAction(10) // 相当于 {type: 'counter/increment'，payload: 10}
 ```
 
-* 我们也看到了，默认的时候，生成的 action creator 只是接收单个参数，并且该参数是 action.payload ；但是，很多时候，我们需要自定义 payload 为其他类型的值，如：对象等；此时，就可以传入一个回调函数（也称为 prepare callback），用于构建自定义的 payload ，即：
+* 我们也看到了，默认的时候，生成的 action creator 只是接收单个参数，并且该参数是 action.payload；但是，很多时候，我们需要自定义 payload 为其他类型的值，如：对象等；此时，就可以传入一个回调函数（也称为 prepare callback），用于构建自定义的 payload，即：
 
 ```js
 import { createAction, nanoid } from '@reduxjs/toolkit'
@@ -257,7 +257,7 @@ store.dispatch({ type: 'counter/increment' })
 console.log(store.getState()) // 通过订阅，或者 connect() 函数来获取
 ```
 
-* 但是，我们通常会使用 action creator 来分发 action ，即：
+* 但是，我们通常会使用 action creator 来分发 action，即：
 
 ```js
 const increment = (payload) => {
@@ -309,7 +309,7 @@ console.log(currentValue)
 
 ### 1.4.1 概述
 
-* 使用 `Redux Toolkit` 重构之前的[案例](https://aexiar.github.io/web-design/notes/07_React18/08_xdx/#_4-5-redux-%E6%A8%A1%E5%9D%97%E7%9A%84%E6%8B%86%E5%88%86)，需要实现如下的效果。
+* 使用 `Redux Toolkit` 重构之前的 [案例](https://aexiar.github.io/web-design/notes/07_React18/08_xdx/#_4-5-redux-%E6%A8%A1%E5%9D%97%E7%9A%84%E6%8B%86%E5%88%86)，需要实现如下的效果。
 
 ![](./assets/3.gif)
 
@@ -333,7 +333,7 @@ const store = configureStore({
 export default store
 ```
 
-* 需要`注意⚠️`的是，上述代码中的 reducer 配置选项，就相当于 redux 中提供的 combineReducers() 函数，即：
+* 需要 `注意⚠️` 的是，上述代码中的 reducer 配置选项，就相当于 redux 中提供的 combineReducers() 函数，即：
 
 ```js {6-9}
 import bannerReducer from "@/store/banner"
@@ -405,7 +405,7 @@ export default counterSlice.reducer // 导出 reducer
 > * 上面之所以能使用 `state.count = state.count + action.payload`，是因为 Redux Toolkit 允许我们在 reducer 中编写“突变”逻辑。它实际上并没有改变状态，因为它使用了 Immer 库，检测对“草稿状态”的更改，并生成全新的基于这些更改的不可变状态。
 > * name 属性：用来给 devtools 工具使用的，即用户标记的 slice 名称。
 > * initialState 属性：中配置的就是初始化 state 的值。
-> * reducers 属性：相当于之前的 reducer 函数，而其中的每个函数，都类似于之前的 case 语句；并且，action 的属性`必须`是 type 和 action 。
+> * reducers 属性：相当于之前的 reducer 函数，而其中的每个函数，都类似于之前的 case 语句；并且，action 的属性 `必须` 是 type 和 action。
 
 ### 1.4.5 将切片添加到 store 中
 
@@ -527,7 +527,7 @@ export default App
 
 ### 1.5.1 概述
 
-*  我们知道，Redux 结合 `redux-thunk` ，是可以 dispath (action) 的时候，action 也可以是函数，以便实现异步功能；当然，`Redux Toolkit`也必须支持。
+*  我们知道，Redux 结合 `redux-thunk` ，是可以 dispath (action) 的时候，action 也可以是函数，以便实现异步功能；当然，`Redux Toolkit` 也必须支持。
 * 需求：实现下面的功能。
 
 ![](./assets/5.gif)
@@ -618,7 +618,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Banner)
 
 ## 1.6 疑惑？
 
-* 其实，上述的演示仅仅是 Redux Toolkit 中的`冰山一角`而已，如：Ajax 的请求通常会使用 Promise （Pending、Fulfilled、Rejected）来进行开发，那么如何在 Redux 获取异步数据的时候，直接获取到请求的状态？
+* 其实，上述的演示仅仅是 Redux Toolkit 中的 `冰山一角` 而已，如：Ajax 的请求通常会使用 Promise（Pending、Fulfilled、Rejected）来进行开发，那么如何在 Redux 获取异步数据的时候，直接获取到请求的状态？
 
 > 注意⚠️：对于 Redux Toolkit 的其它知识，将会在 React Hooks 之后，统一讲解！！！
 
@@ -626,7 +626,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Banner)
 
 # 第二章：Redux Toolkit 的数据不可变（了解）
 
-* 在 React 开发中，我们总会强调数据的[不可变](https://aexiar.github.io/web-design/notes/07_React18/05_xdx/#_1-5-%E4%B8%8D%E5%8F%AF%E5%8F%98%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8A%9B%E9%87%8F)：无论是类组件的中的 state ，还是 Redux 中管理的 state 。
+* 在 React 开发中，我们总会强调数据的 [不可变](https://aexiar.github.io/web-design/notes/07_React18/05_xdx/#_1-5-%E4%B8%8D%E5%8F%AF%E5%8F%98%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8A%9B%E9%87%8F)：无论是类组件的中的 state，还是 Redux 中管理的 state。
 * 之前，我们经常会使用浅拷贝来完成这些操作；但是，浅拷贝也会存在问题：
   * ① 过大的对象，在进行浅拷贝的时候会造成性能的浪费。
   * ② 浅拷贝后的对象，在深层改变的时候，依然会对之前的对象产生影响。
@@ -666,7 +666,7 @@ export default reducer
 > 注意⚠️：
 >
 > * 我们只能在 Redux Toolkit 的 **`createSlice`** 和 **`createReducer`** 中编写 `“mutation”` 逻辑，因为它们在内部使用 Immer！
-> * 如果我们在没有 Immer 的 reducer 中编写 mutation 逻辑，它将`改变状态`并`导致错误！`
+> * 如果我们在没有 Immer 的 reducer 中编写 mutation 逻辑，它将 `改变状态` 并 `导致错误！`
 
 
 
@@ -866,7 +866,7 @@ export function connect(mapStateToProps, mapDispatchToProps) {
 
 ### 3.3.1 概述
 
-* 在上面的自定义 connect 函数，会依赖导入的 store ，即：
+* 在上面的自定义 connect 函数，会依赖导入的 store，即：
 
 ```js {2}
 import {PureComponent} from "react"
@@ -914,7 +914,7 @@ export function connect(mapStateToProps, mapDispatchToProps) {
 }
 ```
 
-* 难道，我们通过 npm 打包上传到 npm [中央仓库](https://www.npmjs.com/) 之后，让用户 npm install 之后，手动修改源码；显然，不现实。最为正确的做法，就是应该提供一个 Provider ，并且该 Provider 就是通过 React 内部的 Context API 来实现的。
+* 难道，我们通过 npm 打包上传到 npm [中央仓库](https://www.npmjs.com/) 之后，让用户 npm install 之后，手动修改源码；显然，不现实。最为正确的做法，就是应该提供一个 Provider，并且该 Provider 就是通过 React 内部的 Context API 来实现的。
 
 ### 3.3.2 自定义 Provider 
 
@@ -922,7 +922,7 @@ export function connect(mapStateToProps, mapDispatchToProps) {
 
 ![image-20240105101929054](./assets/9.png)
 
-* ① 实现 connect 函数以及 Provider ：
+* ① 实现 connect 函数以及 Provider：
 * 其中，hoc/createContext.js
 
 ```js
@@ -992,7 +992,7 @@ export function connect(mapStateToProps, mapDispatchToProps) {
 }
 ```
 
-* ② 在 index.js 中应用自己封装的 Provider ：
+* ② 在 index.js 中应用自己封装的 Provider：
 
 ```js {5,9,13}
 import React from 'react'
@@ -1139,7 +1139,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Banner)
 
 * 猴补丁（Monkey Patch）是一种在运行时修改或扩展现有代码的技术。它通常用于在不修改原始代码的情况下，动态地修改或增强现有的类、函数或对象的行为。
 
-* 猴补丁的概念源自`动态语言`的特性，特别是在像 Python 和 `JavaScript` 这样的语言中，可以在运行时修改对象的属性和方法。通过猴补丁，开发者可以在不改变原始代码的情况下，对现有的类、函数或对象进行修改，添加新的功能或改变其行为。
+* 猴补丁的概念源自 `动态语言` 的特性，特别是在像 Python 和 `JavaScript` 这样的语言中，可以在运行时修改对象的属性和方法。通过猴补丁，开发者可以在不改变原始代码的情况下，对现有的类、函数或对象进行修改，添加新的功能或改变其行为。
 
 * 猴补丁的应用场景包括但不限于：
 

@@ -11,7 +11,7 @@ head:
       content: 从 HTML、CSS、JavaScript 到 TypeScript、Vue、React 与前端工程化，系统学习现代 WEB 前端开发。
   - - meta
     - name: keywords
-      content: HTML, CSS, JavaScript, TypeScript, Vue, React, WEB 前端, 为知笔记
+      content: HTML, CSS, JavaScript, TypeScript, Vue, React, WEB 前端，为知笔记
 encrypt: false
 ---
 

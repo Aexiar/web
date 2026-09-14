@@ -8,7 +8,7 @@ permalink: /pages/6205cf
 
 ## 1.1 概述
 
-* React 是用于构建 `Web` 和`原生交互界面`的`库`。
+* React 是用于构建 `Web` 和 `原生交互界面` 的 `库`。
 
 ![image-20231213090611708](./assets/1.png)
 
@@ -24,10 +24,10 @@ permalink: /pages/6205cf
 
 ## 1.3 React 的技术特点
 
-* ① React 是由前 Facebook（现 Meta）公司来更新和维护的，它是`大量优秀程序员`的`思想结晶`。
-* ② React 的流行不仅仅局限于`普通开发工程师`对它的认可，大量的`其它框架`也`借鉴`了 React 的思想。
-  * Vue.js 框架在设计之初，也借鉴和学习了 React，如：React 的 Hooks （Vue 3.x 的 Composition API）。
-* ③ React 是`前端的先驱者`，它总是会`引领`整个前端的`潮流`。
+* ① React 是由前 Facebook（现 Meta）公司来更新和维护的，它是 `大量优秀程序员` 的 `思想结晶`。
+* ② React 的流行不仅仅局限于 `普通开发工程师` 对它的认可，大量的 `其它框架` 也 `借鉴` 了 React 的思想。
+  * Vue.js 框架在设计之初，也借鉴和学习了 React，如：React 的 Hooks（Vue 3.x 的 Composition API）。
+* ③ React 是 `前端的先驱者`，它总是会 `引领` 整个前端的 `潮流`。
 
 
 
@@ -37,27 +37,27 @@ permalink: /pages/6205cf
 
 ### 2.1.1 概述
 
-* React 是用于构建 `Web` 和`原生交互界面`的`库`
+* React 是用于构建 `Web` 和 `原生交互界面` 的 `库`
 
 ![image-20231213095930226](./assets/4.png)
 
 ### 2.1.2 React 的特点
 
 * ① 声明式编程：
-  * 目前，整个大前端的`最流行开发模式`是`声明式编程`，如：Vue、React、Flutter 等。
-  * 声明式编程允许`我们只维护自己的状态`，`当状态改变的时候`，`React 会根据最新的状态去重新渲染我们的 UI 界面`。
+  * 目前，整个大前端的 `最流行开发模式` 是 `声明式编程`，如：Vue、React、Flutter 等。
+  * 声明式编程允许 `我们只维护自己的状态`，`当状态改变的时候`，`React 会根据最新的状态去重新渲染我们的 UI 界面`。
 
 ![image-20231213100244515](./assets/5.png)
 
 * ② 组件化开发：
-  * `组件化开发`是目前前端的`流行趋势`，我们可以将复杂的界面拆分为一个个小的组件。
+  * `组件化开发` 是目前前端的 `流行趋势`，我们可以将复杂的界面拆分为一个个小的组件。
 
 ![image-20231213100607613](./assets/6.png)
 
 * ③ 多平台适配：
-  * 2013 年，React 发布之初主要是`开发 WEB 页面`。
-  * 2015 年，Facebook 推出了 `ReactNative`，用于`开发移动端跨平台`。
-  * 2017 年，Facebook 推出了 `ReactVR`，用于`开发虚拟现实 WEB 应用程序`。
+  * 2013 年，React 发布之初主要是 `开发 WEB 页面`。
+  * 2015 年，Facebook 推出了 `ReactNative`，用于 `开发移动端跨平台`。
+  * 2017 年，Facebook 推出了 `ReactVR`，用于 `开发虚拟现实 WEB 应用程序`。
   * ……
 
 ![image-20231213100850354](./assets/7.png)
@@ -79,7 +79,7 @@ permalink: /pages/6205cf
 >
 > * 我们会发现有 umd 和 cjs 的版本。
 > * 其中，umd 全称是 Universal Module Definition，可以在前端和后端通用。
-> * 其中，cjs 全称 CommonJS ，不能在浏览器中运行，通常会在 Node.js 中运行。
+> * 其中，cjs 全称 CommonJS，不能在浏览器中运行，通常会在 Node.js 中运行。
 > * ~~其中，amd 的全称是 Asynchronous Module Definition，已经被淘汰~~。
 > * 其中，esm 的全称是 ES Modules，可以在很多现代浏览器中使用；但是，一般配合打包工具，如：webpack、vite 等使用，以便在所有浏览器都能使用。
 
@@ -152,8 +152,8 @@ permalink: /pages/6205cf
 ### 2.2.3 注意点
 
 * ① `script` 元素的 `type` 属性必须是 `text/babel`，即告诉浏览器此处让 babel 解析 jsx 的语法。
-* ② `ReactDOM.createRoot(xxx)`的作用是创建一个 React 根元素，然后将虚拟 DOM 渲染到这个根元素之中。其中，参数 `xxx` 就是要挂在到哪一个 HTML 元素上。
-* ③ `root.render(xxx)` 是用来渲染组件（虚拟 DOM ）的。
+* ② `ReactDOM.createRoot(xxx)` 的作用是创建一个 React 根元素，然后将虚拟 DOM 渲染到这个根元素之中。其中，参数 `xxx` 就是要挂在到哪一个 HTML 元素上。
+* ③ `root.render(xxx)` 是用来渲染组件（虚拟 DOM）的。
 * ④ 在 React 18 之前的语法是：`ReactDOM.render(vDOM, document.querySelector('.root'))`；不过，现在该 API 已经过时。
 * ⑤ 我们可以使用 `{}` 在 jsx 中引入外部的变量或表达式。
 
@@ -275,14 +275,14 @@ app.render(vDOM)
 * 上述的代码虽然能解决问题，但是却产生了如下的问题：
   * ① 我们需要手动封装渲染页面的函数，在初次渲染的时候就调用该函数；当我们更改完数据之后，还需要手动调用该函数；难道每次修改完数据，都需要手动调用该函数，React 也太不智能了吧（这是所谓的声明式编程？）。
   * ② 代码过于分散，如果开发过 Vue3.x 的都知道，Vue 会将代码封装到 `.vue` 文件中；那么，React 应该也提供类似的功能，而上述代码的实现却没能很好的体现程序设计的内聚性。
-  * ③ 我们也知道`root.render(xxx)` 不仅可以用来渲染 DOM ，也可以用来渲染组件的；其中，`xxx` 既可以是`虚拟 DOM` ，也可以是`组件`。
+  * ③ 我们也知道 `root.render(xxx)` 不仅可以用来渲染 DOM，也可以用来渲染组件的；其中，`xxx` 既可以是 `虚拟 DOM` ，也可以是 `组件`。
   * ④ ……
 
 * 那么，怎么解决？
 
 ![image-20231213161554404](./assets/11.png)
 
-> 注意⚠️：React 中支持`类组件`和`函数式组件`，我们以`类组件`为`切入点`讲解，`函数式组件`后面再讲解。。
+> 注意⚠️：React 中支持 `类组件` 和 `函数式组件`，我们以 `类组件` 为 `切入点` 讲解，`函数式组件` 后面再讲解。。
 
 ### 2.3.3 React 中的类组件
 
@@ -569,7 +569,7 @@ app.render(vDOM)
 
 ![image-20231213170219827](./assets/16.png)
 
-* 分析：代码之所以报错，是因为 this 的隐式绑定。当运行 `const app = new App()`的时候，`change()` 方法的 this 确实是 `app` 对象；但是，当运行`const abc = app.change; abc()` 这段代码的时候，`change()` 方法的 this 已经是 `window` 对象。又因为我们使用的是类，浏览器会开启严格模式，所以 `change()` 方法的 this 已经是 `undefined` 对象，此时 `undefined.message` 当然会报错了。
+* 分析：代码之所以报错，是因为 this 的隐式绑定。当运行 `const app = new App()` 的时候，`change()` 方法的 this 确实是 `app` 对象；但是，当运行 `const abc = app.change; abc()` 这段代码的时候，`change()` 方法的 this 已经是 `window` 对象。又因为我们使用的是类，浏览器会开启严格模式，所以 `change()` 方法的 this 已经是 `undefined` 对象，此时 `undefined.message` 当然会报错了。
 
 * 我们可以通过 bind 来显示改变 this 的指向，并且 bind 的定义是这样的：
 
@@ -988,39 +988,39 @@ app.render(vDOM)
 const element = <h1>Hello, world!</h1>
 ```
 
-* 这个有趣的标签语法既`不是字符串`也`不是 HTML` ；如果，我们将 `script` 元素的 `type='text/babel'` 属性去掉，就会报错，因为浏览器压根不认识。
-* 其实，这就是 `JSX` （`J`ava`S`cript e`X`tension），是一种 `JavaScript` 的语法扩展；也有人称其是 `JavaScript XML`，因为看起来就像 `XML` 语法。
-* 在 React 开发中，建议配合使用 JSX ，因为其可以很好地描述 UI 应该呈现出它应有交互的本质形式。
+* 这个有趣的标签语法既 `不是字符串` 也 `不是 HTML` ；如果，我们将 `script` 元素的 `type='text/babel'` 属性去掉，就会报错，因为浏览器压根不认识。
+* 其实，这就是 `JSX` （`J` ava `S` cript e `X` tension），是一种 `JavaScript` 的语法扩展；也有人称其是 `JavaScript XML`，因为看起来就像 `XML` 语法。
+* 在 React 开发中，建议配合使用 JSX，因为其可以很好地描述 UI 应该呈现出它应有交互的本质形式。
 * JSX 不同于 Vue 中的模板语法；因此，我们不再需要专门学习模板语法中的各种指令，如：`v-if`、`v-else`、`v-for` 等。
 * `JSX 拥有 JavaScript 的一切功能！！！`
 
-## 3.2 为什么 React 选择了 JSX ？（⭐）
+## 3.2 为什么 React 选择了 JSX？（⭐）
 
-* React 认为`渲染逻辑`本质上与`其他 UI 逻辑`存在内在耦合，如：
+* React 认为 `渲染逻辑` 本质上与 `其他 UI 逻辑` 存在内在耦合，如：
   * 在 UI 中需要绑定处理事件。
   * 在某些时刻状态发生变化时需要通知到 UI。
   * 需要在 UI 中展示准备好的数据。
-* React 并没有采用将`标记与逻辑分离到不同文件`这种人为的分离方式，而是通过将二者共同存放在称之为`组件`的松散耦合单元之中，来实现`关注点分离`。
+* React 并没有采用将 `标记与逻辑分离到不同文件` 这种人为的分离方式，而是通过将二者共同存放在称之为 `组件` 的松散耦合单元之中，来实现 `关注点分离`。
 
 > 维基百科的定义：
 >
-> * 在[计算机科学](https://zh.wikipedia.org/wiki/計算機科學)中，**关注点分离**（Separation of concerns，SoC），是将计算机程序分隔为不同部分的设计原则。每一部分会有各自的关注焦点。关注焦点是影响计算机程式程式码的一组资讯。关注焦点可以像是将程式码优化过的硬件细节一般，或者像实例化类别的名称一样具体。展现关注点分离设计的程序被称为[模组化](https://zh.wikipedia.org/wiki/模块化编程)程序[[1\]](https://zh.wikipedia.org/wiki/关注点分离#cite_note-laplante-1)。模组化程度，也就是区分关注焦点，通过将资讯[封装](https://zh.wikipedia.org/wiki/封裝_(物件導向程式設計))在具有明确界面的程序代码段落中。封装是一种[资讯隐藏](https://zh.wikipedia.org/wiki/資訊隱藏_(電腦科學))手段[[2\]](https://zh.wikipedia.org/wiki/关注点分离#cite_note-mitchell-2)。资讯系统中的分层设计是关注点分离的另一个实施例（例如，表示层，业务逻辑层，数据访问层，持久数据层）[[3\]](https://zh.wikipedia.org/wiki/关注点分离#cite_note-microsoft-3)。
-> * 关注点分离，是对只与“特定概念、目标”（[关注点](https://zh.wikipedia.org/w/index.php?title=關注點&action=edit&redlink=1)）相关联的[软件](https://zh.wikipedia.org/wiki/软件)组成部分进行“标识、[封装](https://zh.wikipedia.org/wiki/封裝_(物件導向程式設計))和操纵”的能力，即标识、封装和操纵关注点的能力。是处理复杂性的一个原则。由于关注点混杂在一起会导致复杂性大大增加，所以能够把不同的关注点分离开来，分别处理就是处理复杂性的一个原则，一种方法。分离关注点使得解决特定领域问题的程式码从业务逻辑中独立出来，业务逻辑的程式码中不再含有针对特定领域问题程式码的调用（将针对特定领域问题程式码抽象化成较少的程式码，例如将程式码封装成function或是class），业务逻辑同特定领域问题的关系通过侧面来封装、维护，这样原本分散在整个[应用程序](https://zh.wikipedia.org/wiki/应用程序)中的变动就可以很好的管理起来。
+> * 在 [计算机科学](https://zh.wikipedia.org/wiki/計算機科學) 中，**关注点分离**（Separation of concerns，SoC），是将计算机程序分隔为不同部分的设计原则。每一部分会有各自的关注焦点。关注焦点是影响计算机程式程式码的一组资讯。关注焦点可以像是将程式码优化过的硬件细节一般，或者像实例化类别的名称一样具体。展现关注点分离设计的程序被称为 [模组化](https://zh.wikipedia.org/wiki/模块化编程) 程序[[1\]](https://zh.wikipedia.org/wiki/关注点分离#cite_note-laplante-1)。模组化程度，也就是区分关注焦点，通过将资讯 [封装](https://zh.wikipedia.org/wiki/封裝_(物件導向程式設計)) 在具有明确界面的程序代码段落中。封装是一种 [资讯隐藏](https://zh.wikipedia.org/wiki/資訊隱藏_(電腦科學)) 手段[[2\]](https://zh.wikipedia.org/wiki/关注点分离#cite_note-mitchell-2)。资讯系统中的分层设计是关注点分离的另一个实施例（例如，表示层，业务逻辑层，数据访问层，持久数据层）[[3\]](https://zh.wikipedia.org/wiki/关注点分离#cite_note-microsoft-3)。
+> * 关注点分离，是对只与“特定概念、目标”（[关注点](https://zh.wikipedia.org/w/index.php?title=關注點&action=edit&redlink=1)）相关联的 [软件](https://zh.wikipedia.org/wiki/软件) 组成部分进行“标识、[封装](https://zh.wikipedia.org/wiki/封裝_(物件導向程式設計)) 和操纵”的能力，即标识、封装和操纵关注点的能力。是处理复杂性的一个原则。由于关注点混杂在一起会导致复杂性大大增加，所以能够把不同的关注点分离开来，分别处理就是处理复杂性的一个原则，一种方法。分离关注点使得解决特定领域问题的程式码从业务逻辑中独立出来，业务逻辑的程式码中不再含有针对特定领域问题程式码的调用（将针对特定领域问题程式码抽象化成较少的程式码，例如将程式码封装成 function 或是 class），业务逻辑同特定领域问题的关系通过侧面来封装、维护，这样原本分散在整个 [应用程序](https://zh.wikipedia.org/wiki/应用程序) 中的变动就可以很好的管理起来。
 > * 关注点分离的价值在于简化计算机程序的开发和维护。当关注点分开时，各部分可以重复使用，以及独立开发和更新。具有特殊价值的是能够稍后改进或修改一段代码，而无需知道其他部分的细节必须对这些部分进行相应的更改。
 
-* React`不强制要求`使用 JSX，但是大多数人发现，在 JavaScript 代码中将 JSX 和 UI 放在一起时，会在视觉上有辅助作用。
-* `JSX` 还可以使 React `显示`更多`有用`的错误和警告消息。
+* React `不强制要求` 使用 JSX，但是大多数人发现，在 JavaScript 代码中将 JSX 和 UI 放在一起时，会在视觉上有辅助作用。
+* `JSX` 还可以使 React `显示` 更多 `有用` 的错误和警告消息。
 
 ## 3.3 JSX 的基本使用（⭐）
 
 ### 3.3.1 JSX 的基本语法
 
 * JSX 的基本语法：
-  * ① JSX 中`只能`有`一个`根元素，除非使用 `Fragment` 标签包裹。
+  * ① JSX 中 `只能` 有 `一个` 根元素，除非使用 `Fragment` 标签包裹。
   * ② 为了方便阅读，我们通常会在 JSX 的外层包裹一个 `()`。
-  * ③ 在 JSX 中，`标签`可以是`单标签`，也可以是`双标签`；但是，如果是单标签，必须以 `<标签 />` 结尾（这点，很像 XML 语法）。
+  * ③ 在 JSX 中，`标签` 可以是 `单标签`，也可以是 `双标签`；但是，如果是单标签，必须以 `<标签 />` 结尾（这点，很像 XML 语法）。
 
-> 注意⚠️：JSX 是在`类式组件`中 `render()` 方法的 `return`  后面书写，`函数式组件`且听后文讲解。
+> 注意⚠️：JSX 是在 `类式组件` 中 `render()` 方法的 `return`  后面书写，`函数式组件` 且听后文讲解。
 
 
 
@@ -1136,8 +1136,8 @@ const element = <h1>Hello, world!</h1>
 
 #### 3.3.3.1 概述
 
-* 在 Vue 中，如果是`插入文本`，需要使用`插值语法 {{}}`；如果需要插入`大段子元素`（如：`ul` 中插入大量的 `li`），需要使用 `v-for` 等指令。
-* 在 React 中，可以使用 `{}` 中嵌入`变量`的方式来作为`子元素`；换言之，结合了 Vue 中的上述两种写法。
+* 在 Vue 中，如果是 `插入文本`，需要使用 `插值语法 {{}}`；如果需要插入 `大段子元素`（如：`ul` 中插入大量的 `li`），需要使用 `v-for` 等指令。
+* 在 React 中，可以使用 `{}` 中嵌入 `变量` 的方式来作为 `子元素`；换言之，结合了 Vue 中的上述两种写法。
 
 
 
@@ -1252,12 +1252,12 @@ const element = <h1>Hello, world!</h1>
 
 #### 3.3.3.2 JSX 中嵌入变量的各种情况
 
-* 情况①：当`变量`是 `Number`、`String`、`Array` 类型的时候，可以`直接显示`；当然，Array 类型会帮助我们遍历数组中的元素并显示到界面上。
-* 情况②：当`变量`是 `null`、`undefined` 、`Boolean` 的时候，`显示的内容为空`。
+* 情况①：当 `变量` 是 `Number`、`String`、`Array` 类型的时候，可以 `直接显示`；当然，Array 类型会帮助我们遍历数组中的元素并显示到界面上。
+* 情况②：当 `变量` 是 `null`、`undefined` 、`Boolean` 的时候，`显示的内容为空`。
 
 > 注意⚠️：如果依然希望可以显示  `null`、`undefined` 、`Boolean` ，需要转换为 `String`（实际开发中，一般不需要）。
 
-* 情况③：当`变量`是 `Object 对象类型`的时候，会`直接报错`（not valid as a React child）。
+* 情况③：当 `变量` 是 `Object 对象类型` 的时候，会 `直接报错`（not valid as a React child）。
 
 
 
@@ -1603,7 +1603,7 @@ const element = <h1>Hello, world!</h1>
 
 ### 3.4.2 JSX 绑定 style 属性
 
-* 在 Vue 中，对于 style 属性，是通过绑定 JavaScript 的`对象值`来实现的：
+* 在 Vue 中，对于 style 属性，是通过绑定 JavaScript 的 `对象值` 来实现的：
 
 ```vue {2}
 <template>
@@ -1617,12 +1617,12 @@ const element = <h1>Hello, world!</h1>
 </script>
 ```
 
-* 在 React 中，依然是使用 `{}` 来绑定基本属性；但是，`{}` 中是通过  JavaScript 的`对象值`来实现的。
+* 在 React 中，依然是使用 `{}` 来绑定基本属性；但是，`{}` 中是通过  JavaScript 的 `对象值` 来实现的。
 
 > 注意⚠️：
 >
 > * 在原生 CSS 中，一些属性是通过 `-` 连接的，如：background-color 等；
-> * 在 Vue 和 React 中，都需要使用小驼峰的命名规则，如：backgroundColor 。
+> * 在 Vue 和 React 中，都需要使用小驼峰的命名规则，如：backgroundColor。
 > * 很好理解，因为这是 JavaScript 中规定的，在 JavaScript 中变量的命名是不能使用 `-` 连接的；即使在 对象中，如果属性名需要使用 `-` 连接，也需要加上 `''` 。
 
 
@@ -1686,7 +1686,7 @@ const element = <h1>Hello, world!</h1>
 
 ### 3.4.3 JSX 绑定 class 类
 
-* 在 Vue 中，对于 class  类，是通过传递一个`对象`来动态切换 `class`：
+* 在 Vue 中，对于 class  类，是通过传递一个 `对象` 来动态切换 `class`：
 
 ```vue
 <template>
@@ -1700,7 +1700,7 @@ const element = <h1>Hello, world!</h1>
 </script>
 ```
 
-* 在 Vue 中，对于 class 类，还可以传递一个`数组`来渲染多个 `class` ：
+* 在 Vue 中，对于 class 类，还可以传递一个 `数组` 来渲染多个 `class` ：
 
 ```vue {2}
 <template>
@@ -1716,7 +1716,7 @@ const element = <h1>Hello, world!</h1>
 
 * 在 React 中，和 Vue 有点不同，需要使用 `className` 来完成 class 的绑定。
 
-> 注意⚠️：在 React 中，如果想要实现类似 Vue 中对象动态切换 class 的那种效果，需要使用第三方库 classnames 。
+> 注意⚠️：在 React 中，如果想要实现类似 Vue 中对象动态切换 class 的那种效果，需要使用第三方库 classnames。
 
 
 
@@ -1957,7 +1957,7 @@ const element = <h1>Hello, world!</h1>
 
 
 * 在 React 中的事件监听和原生 JavaScript 的事件监听有稍许不同：
-  * React 中的`事件命名`采用的是`小驼峰`的命名规则，如：`onClick`、`OnDbClick` 等。
+  * React 中的 `事件命名` 采用的是 `小驼峰` 的命名规则，如：`onClick`、`OnDbClick` 等。
   * 我们可以通过 `{}` 插入一个事件处理函数，该事件处理函数会在事件发生的时候被执行。
 
 
@@ -2027,7 +2027,7 @@ const element = <h1>Hello, world!</h1>
 
 #### 3.5.2.1 this 绑定方式一
 
-* 我们可以通过在`构造器`或`调用方法处`通过`手动通过 bind 绑定 this` 来解决在类中的方法中，this 丢失的问题。
+* 我们可以通过在 `构造器` 或 `调用方法处` 通过 `手动通过 bind 绑定 this` 来解决在类中的方法中，this 丢失的问题。
 
 
 
@@ -2156,7 +2156,7 @@ const element = <h1>Hello, world!</h1>
 
 #### 3.5.2.2 this 绑定方式二
 
-* 在 ES6+ 中，类中可以写 `class fields` ，即`类属性`。
+* 在 ES6+ 中，类中可以写 `class fields` ，即 `类属性`。
 
 ![image-20231214163139007](./assets/22.png)
 
@@ -2182,7 +2182,7 @@ sayAge();   // 正常输出 19
 sayName();  // this 为 undefined，会报错
 ```
 
-* 箭头函数不会创建自己的 this，而是会继承外层作用域的 this 。当我们将 tom.sayName 和 tom.sayAge 赋值给 sayName 和sayAge 变量时，这 sayAge 仍然保留了对 tom 实例的引用。
+* 箭头函数不会创建自己的 this，而是会继承外层作用域的 this。当我们将 tom.sayName 和 tom.sayAge 赋值给 sayName 和 sayAge 变量时，这 sayAge 仍然保留了对 tom 实例的引用。
 * 当然，更加具体的解释在这里：
 
 ![image-20231214163824731](./assets/23.png)
@@ -2252,9 +2252,9 @@ sayName();  // this 为 undefined，会报错
 
 #### 3.5.2.3 this 绑定方式三
 
-* 我们也可以通过在`事件监听`中传入`箭头函数`的方式来解决 this 绑定问题（`强烈推荐`）。
+* 我们也可以通过在 `事件监听` 中传入 `箭头函数` 的方式来解决 this 绑定问题（`强烈推荐`）。
 
-> 注意⚠️：`() => {}` 箭头函数也是表达式，所以 `{}` 中就可以插入`箭头函数`。 
+> 注意⚠️：`() => {}` 箭头函数也是表达式，所以 `{}` 中就可以插入 `箭头函数`。 
 
 
 
@@ -2388,7 +2388,7 @@ sayName();  // this 为 undefined，会报错
 
 #### 3.5.3.1 event 参数的传递
 
-* 对于原生 JavaScript  而言，我们是在回调函数中，通过参数 `event` 来得到`事件对象`的，如：
+* 对于原生 JavaScript  而言，我们是在回调函数中，通过参数 `event` 来得到 `事件对象` 的，如：
 
 ```js
 boxEl.addEventListener('click',function(event){
@@ -2396,7 +2396,7 @@ boxEl.addEventListener('click',function(event){
 })
 ```
 
-* 在 React 中，我们也可以通过在`类方法`中通过参数 `event` 来得到`事件对象`。
+* 在 React 中，我们也可以通过在 `类方法` 中通过参数 `event` 来得到 `事件对象`。
 
 ```html {30-32,38}
 <!DOCTYPE html>
@@ -2450,7 +2450,7 @@ boxEl.addEventListener('click',function(event){
 </html>
 ```
 
-* 但是，对于在`事件监听`中传入`箭头函数`的方式而言，需要手动传递 `event` 事件对象参数：
+* 但是，对于在 `事件监听` 中传入 `箭头函数` 的方式而言，需要手动传递 `event` 事件对象参数：
 
 ```html {30-32,38}
 <!DOCTYPE html>
@@ -2506,9 +2506,9 @@ boxEl.addEventListener('click',function(event){
 
 #### 3.5.3.2 额外参数的传递
 
-* 有的时候，我们除了要在类方法中获取 event 事件对象参数之外，还需要传递额外的参数；此时，就推荐在`事件监听`中传入`箭头函数`的方式了。
+* 有的时候，我们除了要在类方法中获取 event 事件对象参数之外，还需要传递额外的参数；此时，就推荐在 `事件监听` 中传入 `箭头函数` 的方式了。
 
-> 注意⚠️：这种方式传递参数的`个数`和`位置`是很直观的的，而其他两种方式不是很直观（因为 event 参数最后一个，增加了记忆成本）。
+> 注意⚠️：这种方式传递参数的 `个数` 和 `位置` 是很直观的的，而其他两种方式不是很直观（因为 event 参数最后一个，增加了记忆成本）。
 
 
 
@@ -2577,7 +2577,7 @@ boxEl.addEventListener('click',function(event){
 >
 > * ① 在 `state` 中保存当前的选中数组的索引值，初始为 `0` ，即第一个数组元素。
 > * ② 在 `li` 元素中通过 onClick 事件，获取当前选中的索引值，并将当前的索引值修改到 `state` 对应的变量中。
-> * ③ 在 `li` 元素的 className 属性中根据 `当前的索引值 = 选中的索引值`，来`动态`添加或删除 `active` 类。
+> * ③ 在 `li` 元素的 className 属性中根据 `当前的索引值 = 选中的索引值`，来 `动态` 添加或删除 `active` 类。
 
 
 
@@ -2664,7 +2664,7 @@ boxEl.addEventListener('click',function(event){
 
 ### 3.6.2 if 条件判断
 
-* if 条件判断语句，适合逻辑较多的情况；原理很简单，就是根据`判断`当前的`状态`，然后在 `render` 方法中`返回（return）`不同的 `jsx （虚拟 DOM）`或`组件`。
+* if 条件判断语句，适合逻辑较多的情况；原理很简单，就是根据 `判断` 当前的 `状态`，然后在 `render` 方法中 `返回（return）` 不同的 `jsx （虚拟 DOM）` 或 `组件`。
 
 
 
@@ -2861,7 +2861,7 @@ boxEl.addEventListener('click',function(event){
 ### 3.6.5 短路 && 
 
 * 我们知道，在原生 JavaScript 中， `true && expression` 总是返回 `expression` ；而 `false && expression` 总是返回 `false` 。
-* 同理，如果`条件`是 `true`，在 React 中，`&& 右侧的元素`就`会`被渲染；如果`条件`是 `false`，React 就`不会`渲染。
+* 同理，如果 `条件` 是 `true`，在 React 中，`&& 右侧的元素` 就 `会` 被渲染；如果 `条件` 是 `false`，React 就 `不会` 渲染。
 
 
 
@@ -2927,7 +2927,7 @@ boxEl.addEventListener('click',function(event){
 * 可选链运算符（**`?.`**）允许读取位于连接对象链深处的属性的值，而不必明确验证链中的每个引用是否有效。`?.` 运算符的功能类似于 `.` 链式运算符，不同之处在于，在引用为空 ([nullish](https://developer.mozilla.org/zh-CN/docs/Glossary/Nullish) ) ([`null`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/null) 或者 [`undefined`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined)) 的情况下不会引起错误，该表达式短路返回值是 `undefined`。与函数调用一起使用时，如果给定的函数不存在，则返回 `undefined`。
 * 当尝试访问可能不存在的对象属性时，可选链运算符将会使表达式更短、更简明。在探索一个对象的内容时，如果不能确定哪些属性必定存在，可选链运算符也是很有帮助的。
 
-* 在 React 中，JSX 中的`变量`如果是 `undefined`，React 就`不会`渲染。
+* 在 React 中，JSX 中的 `变量` 如果是 `undefined`，React 就 `不会` 渲染。
 
 
 
@@ -3059,18 +3059,18 @@ boxEl.addEventListener('click',function(event){
 
 > 注意⚠️：在 React 18 之前，是使用 `React.createElement(component, props, ...children)` ；但是，目前该 API 已经过时。
 
-* 其中，`type` 参数表示的是当前 ReactElement 的`类型`：
-  * 如果是`标签`元素，则使用字符串来表示，如：`"div"`。
-  * 如果是`组件`元素，则直接使用组件的名称，如：`Demo`。
+* 其中，`type` 参数表示的是当前 ReactElement 的 `类型`：
+  * 如果是 `标签` 元素，则使用字符串来表示，如：`"div"`。
+  * 如果是 `组件` 元素，则直接使用组件的名称，如：`Demo`。
 
 ![image-20231215151735720](./assets/26.png)
 
-* 其中，`config` 参数是用来存储 JSX 中的`属性`：
+* 其中，`config` 参数是用来存储 JSX 中的 `属性`：
   * 都是以对象的形式存储的。
 
 ![image-20231215151815983](./assets/27.png)
 
-* 其中，`children` 参数是用来表示标签的`内容`，以 children `数组`的方式来存储的。
+* 其中，`children` 参数是用来表示标签的 `内容`，以 children `数组` 的方式来存储的。
 
 ![image-20231215151916702](./assets/28.png)
 
@@ -3080,7 +3080,7 @@ boxEl.addEventListener('click',function(event){
 
 ![image-20231215152816336](./assets/29.png)
 
-* 其实，React 就是通过 `createElement` 创建出来的对象，组成了一个 `JavaScript 对象树`，并且这个 `JavaScript 对象树`就是`虚拟 DOM`（Virtual DOM）。
+* 其实，React 就是通过 `createElement` 创建出来的对象，组成了一个 `JavaScript 对象树`，并且这个 `JavaScript 对象树` 就是 `虚拟 DOM`（Virtual DOM）。
 * 以下面的代码为例：
 
 ```html {47}
@@ -3153,7 +3153,7 @@ boxEl.addEventListener('click',function(event){
 
 ![image-20231215153652797](./assets/31.png)
 
-* 其实，查看 createElement 函数的源码， 我们也知道：createElement 函数返回的就是一个 JavaScript 对象。
+* 其实，查看 createElement 函数的源码，我们也知道：createElement 函数返回的就是一个 JavaScript 对象。
 
 ```js
   var ReactElement = function (type, key, ref, self, source, owner, props) {
@@ -3175,17 +3175,17 @@ boxEl.addEventListener('click',function(event){
   }
 ```
 
-* 所以，最终的开发模式就是这样：我们只需要写 JSX ，其余的就交给 React 了。
+* 所以，最终的开发模式就是这样：我们只需要写 JSX，其余的就交给 React 了。
 
 ![image-20231215154859498](./assets/32.png)
 
 ## 3.9 声明式编程（⭐）
 
-* `虚拟 DOM 的出现`将开发者的`编程模式`从`命令式编程`转变到`声明式编程`。
-* `虚拟 DOM` 是一种`编程概念`。在这个概念里， UI 以一种理想化的，或者说`“虚拟的”`表现形式被保存于内存中，并通过如 ReactDOM 等类库使之与`“真实的”` DOM 同步。这一过程叫做`协调`。
-* 这种编程的方式`赋予`了 React 声明式的 API ：
+* `虚拟 DOM 的出现` 将开发者的 `编程模式` 从 `命令式编程` 转变到 `声明式编程`。
+* `虚拟 DOM` 是一种 `编程概念`。在这个概念里，UI 以一种理想化的，或者说 `“虚拟的”` 表现形式被保存于内存中，并通过如 ReactDOM 等类库使之与 `“真实的”` DOM 同步。这一过程叫做 `协调`。
+* 这种编程的方式 `赋予` 了 React 声明式的 API：
   * 我们告诉 React 希望让 UI 是什么状态，React 就确保 DOM 匹配该状态。
-  * 这使我们可以从`属性操作`、`事件处理`和`手动 DOM 更新`这些在构建应用程序时必要的操作中解放出来。
+  * 这使我们可以从 `属性操作`、`事件处理` 和 `手动 DOM 更新` 这些在构建应用程序时必要的操作中解放出来。
 
 ## 3.10 购物车案例（⭐）
 
@@ -3194,11 +3194,11 @@ boxEl.addEventListener('click',function(event){
 ![](./assets/33.gif)
 
 * 要求：
-  * ① 在界面上以`表格`的形式展示书籍的数据。
-  * ② 在底部显示书籍的`总价格`。
+  * ① 在界面上以 `表格` 的形式展示书籍的数据。
+  * ② 在底部显示书籍的 `总价格`。
   * ③ 点击 `+` 或 `-` 就增加书籍的数量或减少书籍的数量；但是，如果书籍的数量为 `1` ，就不能继续减少。
-  * ④ 点击`移除`按钮，就将当前书籍移除。
-  * ⑤ 如果所有书籍`都`移除了，界面显示`暂无数据`。
+  * ④ 点击 `移除` 按钮，就将当前书籍移除。
+  * ⑤ 如果所有书籍 `都` 移除了，界面显示 `暂无数据`。
 
 
 

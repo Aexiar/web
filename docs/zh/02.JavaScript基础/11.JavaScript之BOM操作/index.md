@@ -25,14 +25,14 @@ permalink: /pages/fccbfd
 
 * window 对象在浏览器中可以从两个视角来看待：
 
-  * 视角一：全局对象，我们知道 ECMAScript 其实是有一个全局对象的，这个全局对象在Node中是global；在浏览器中就是 window 对象。
+  * 视角一：全局对象，我们知道 ECMAScript 其实是有一个全局对象的，这个全局对象在 Node 中是 global；在浏览器中就是 window 对象。
 
-  * 视角二：浏览器窗口对象，作为浏览器窗口时，提供了对浏览器操作的相关的 API 。
+  * 视角二：浏览器窗口对象，作为浏览器窗口时，提供了对浏览器操作的相关的 API。
 
 * 当然，这两个视角存在大量重叠的地方，通常也不需要刻意去区分它们：
-  * 事实上对于浏览器和 Node 中全局对象名称不一样的情况，目前已经指定了对应的标准，称之为`globalThis`，并且大多数现代浏览器都支持它；
-  * 放在 `window` 对象上的所有`属性`都可以`被访问`；
-  * ~~使用 `var` 定义的变量会被`添加`到 `window` 对象中（后面我们将使用 let 或 const 定义变量）~~；
+  * 事实上对于浏览器和 Node 中全局对象名称不一样的情况，目前已经指定了对应的标准，称之为 `globalThis`，并且大多数现代浏览器都支持它；
+  * 放在 `window` 对象上的所有 `属性` 都可以 `被访问`；
+  * ~~使用 `var` 定义的变量会被 `添加` 到 `window` 对象中（后面我们将使用 let 或 const 定义变量）~~；
   * `window` 默认给我们提供了全局的函数和类：`setTimeout`、`Math`、`Date`、`Object` 等。
 
 ## 2.2 window 对象的使用
@@ -40,8 +40,8 @@ permalink: /pages/fccbfd
 * 事实上 window 对象上肩负的重担是非常大的：
   * ① 包含大量的属性，localStorage、console、location、history、screenX、scrollX 等。
   * ② 包含大量的方法，alert、close、scrollTo、open 等。
-  * ③ 包含大量的事件，focus、blur、load、hashchange等。
-  * ④ 包含从 EventTarget 继承过来的方法，addEventListener、removeEventListener、dispatchEvent方法。
+  * ③ 包含大量的事件，focus、blur、load、hashchange 等。
+  * ④ 包含从 EventTarget 继承过来的方法，addEventListener、removeEventListener、dispatchEvent 方法。
 
 
 
@@ -94,19 +94,19 @@ permalink: /pages/fccbfd
 ![image-20230731160156001](./assets/2.png)
 
 * location 对象的常见属性：
-  * `href`：当前 window 对应的超链接 URL 。
+  * `href`：当前 window 对应的超链接 URL。
   * `protocol`：当前的协议。
   * `host`：主机地址。
-  * `hostname`：主机地址(不带端口)。
+  * `hostname`：主机地址 (不带端口)。
   * `port`: 端口。
   * `pathname`: 路径。
   * `search`：查询字符串。
   * `hash`：哈希值。
   * ~~username：URL 中的 username（很多浏览器已经禁用）。~~
-  * ~~password：URL中的password（很多浏览器已经禁用）~~。
+  * ~~password：URL 中的 password（很多浏览器已经禁用）~~。
 
 * location 对象的常见方法：
-  * `assign()` ：赋值一个新的 URL ，并且跳转到该 URL 中；
+  * `assign()` ：赋值一个新的 URL，并且跳转到该 URL 中；
   * `replace()`：打开一个新的 URL，并且跳转到该 URL 中（不同的是不会在浏览记录中留下之前的记录）；
   * `reload()`：重新加载页面，可以传入一个 Boolean 类型；
 
@@ -182,7 +182,7 @@ permalink: /pages/fccbfd
 
 ## 3.2 URLSearchParams
 
-* URLSearchParams 定义了一些实用的方法来处理 URL 的查询字符串:
+* URLSearchParams 定义了一些实用的方法来处理 URL 的查询字符串：
   * 可以将一个字符串转化成 URLSearchParams 类型；
   * 也可以将一个 URLSearchParams 类型转成字符串；
 * URLSearchParams 的常用方法：
@@ -264,7 +264,7 @@ permalink: /pages/fccbfd
   * `forward()`：前进下一页，等价于 `history.go(1)`。
   *  `go()`：加载历史中的某一页。
   * `pushState()`：打开一个指定的地址。
-  * `replaceState()`：打开一个新的地址，并且使用 replace 。
+  * `replaceState()`：打开一个新的地址，并且使用 replace。
 
 > 注意：history 和 hash 是目前 Vue、React 等前端框架实现路由的底层原理。
 
@@ -305,14 +305,14 @@ permalink: /pages/fccbfd
 </html>
 ```
 
-## 4.3 单页应用（SPA） VS 多页应用（MPA）
+## 4.3 单页应用（SPA）VS 多页应用（MPA）
 
-* 单页应用和多页应用是两种常见的Web应用程序设计模式，它们有着不同的特点和适用场景。
+* 单页应用和多页应用是两种常见的 Web 应用程序设计模式，它们有着不同的特点和适用场景。
   * 单页应用（SPA）是指在用户与应用程序交互时，只加载并渲染一个 HTML 页面，页面中的内容通过 JavaScript 动态地更新，无需重新加载整个页面。SPA 通常使用前端框架（如：React、Angular、Vue 等）来实现，可以提供更快速、流畅的用户体验，因为只有部分内容发生变化时才需要与服务器通信。SPA 适用于那些需要频繁更新内容、交互性较高的应用，如：社交媒体平台、单页面产品展示或应用。
   * 多页应用（MPA）是指每次用户与应用程序进行交互时，都会请求服务器加载一个新的 HTML 页面。MPA 的优点在于对 SEO（搜索引擎优化）更友好，因为每个页面都有自己的 URL，搜索引擎可以更好地索引和收录这些页面。MPA 适用于那些需要 SEO 优化、内容独立的页面较多的网站，如：电子商务网站或新闻网站。
 
 * 总结一下单页应用和多页应用的区别：
-  * 页面加载方式：SPA 只在用户首次访问时加载一次页面，之后的内容更新通过JavaScript 动态加载；而 MPA 每次用户与应用交互时，都会加载一个新的页面。
+  * 页面加载方式：SPA 只在用户首次访问时加载一次页面，之后的内容更新通过 JavaScript 动态加载；而 MPA 每次用户与应用交互时，都会加载一个新的页面。
   * 用户体验：SPA 提供更快速、流畅的用户体验，因为页面内容的变化不需要重新加载整个页面；MPA 在页面切换时可能会有较短的加载延迟，影响用户体验。
   * SEO 友好性：MPA 对搜索引擎更友好，每个页面都有独立的 URL，更容易被搜索引擎索引和收录；SPA 在一些情况下可能需要特殊处理才能更好地支持 SEO。
 
@@ -322,12 +322,12 @@ permalink: /pages/fccbfd
 
 ### 4.4.1 概述
 
-* 路由是前端开发中的关键概念，它用于根据不同的 URL 地址在单页Web应用中动态地渲染不同的内容，实现页面的跳转和交互。
+* 路由是前端开发中的关键概念，它用于根据不同的 URL 地址在单页 Web 应用中动态地渲染不同的内容，实现页面的跳转和交互。
 * 前端路由主要分为两种实现方式：
   * hash 模式。
   *  history 模式。
 
-* 其实，hash 模式通过增加和改变哈希值，从而让页面感知到路由变化，换句话说就是改变 URL 后面以`#`分隔的字符串。
+* 其实，hash 模式通过增加和改变哈希值，从而让页面感知到路由变化，换句话说就是改变 URL 后面以 `#` 分隔的字符串。
 
 ![](./assets/3.gif)
 
@@ -414,7 +414,7 @@ permalink: /pages/fccbfd
 
 > 注意：
 >
-> * `forward`、`back` 和 `go` 方法的调用`会`触发 `popstate` 事件，而 `pushState` 和 `replaceState` 却`不会`触发 `popstate` 事件。
+> * `forward`、`back` 和 `go` 方法的调用 `会` 触发 `popstate` 事件，而 `pushState` 和 `replaceState` 却 `不会` 触发 `popstate` 事件。
 > * 需通过自定义事件和全局事件总线来触发事件，进而每当浏览历史发生改变时，`popstate` 事件都会被触发。
 > * 测试的时候，需要服务器的支持，可以借助 vscode 的 Live Server 插件；当然，webstorm 自带了。
 
@@ -547,11 +547,11 @@ permalink: /pages/fccbfd
 
 ## 6.1 概述
 
-* 在实际开发中，JSON 是一种非常重要的`数据格式`，它并`不是编程语言`，而是一种可以在服务器和客户端之间传输的数据格式。
+* 在实际开发中，JSON 是一种非常重要的 `数据格式`，它并 `不是编程语言`，而是一种可以在服务器和客户端之间传输的数据格式。
 * JSON（英文全称是 JavaScript Object Notation，中文翻译为 `JavaScript 对象符号`）：
-  * JSON 是由 `Douglas Crockford` 构想和设计的一种`轻量级资料交换格式`，是 JavaScript 的一个子集。
-  * `虽然 JSON 被提出来的时候是主要应用 JavaScript 中`，但是目前已经`独立于编程语言`，`可以在各个编程语言中`使用。
-  * 很多编程语言都实现了`将 JSON 转换成对应模型的方法`，如：Java 中的 Jackson 等。
+  * JSON 是由 `Douglas Crockford` 构想和设计的一种 `轻量级资料交换格式`，是 JavaScript 的一个子集。
+  * `虽然 JSON 被提出来的时候是主要应用 JavaScript 中`，但是目前已经 `独立于编程语言`，`可以在各个编程语言中` 使用。
+  * 很多编程语言都实现了 `将 JSON 转换成对应模型的方法`，如：Java 中的 Jackson 等。
 
 * 其它的数据传输格式：
   * XML（eXtensible Markup Language）：一种标记语言，用于描述数据的结构和内容。它具有自我描述性和可扩展性，适用于跨平台和跨语言的数据交换。
@@ -561,12 +561,12 @@ permalink: /pages/fccbfd
   * Avro（Apache Avro）：一种基于 JSON 的数据序列化系统，支持动态模式演化。它具有紧凑的二进制格式和快速的序列化/反序列化速度，适用于大数据处理。
   * BSON（Binary JSON）：一种二进制表示的 JSON 格式，用于在 MongoDB 中存储和传输数据。它支持更多的数据类型和更高效的编码方式。
 
-> 注意：目前 JavaScript 也支持 Protocol Buffers 。
+> 注意：目前 JavaScript 也支持 Protocol Buffers。
 
 * JSON 的应用场景：
   * ① 网络数据传输，通常用于前后端交互。
   * ② 项目的配置文件。
-  * ③ 非关系型数据库（NoSQL）将 JSON作为存储格式。
+  * ③ 非关系型数据库（NoSQL）将 JSON 作为存储格式。
 
 ## 6.2 JSON 的基本语法
 
@@ -575,7 +575,7 @@ permalink: /pages/fccbfd
   * 对象值：由 key、value 组成，key 是字符串类型，并且必须添加双引号，值可以是简单值、对象值、数组值。
   * 数组值：数组的值可以是简单值、对象值、数组值。
 
-> 注意：JSON 不包含 undefined ，是因为 undefined 是 JavaScript 特有的，而其它的编程语言并不支持。为了保持 JSON 的通用性和互操作性，JSON 规范选择不支持 undefined 。
+> 注意：JSON 不包含 undefined，是因为 undefined 是 JavaScript 特有的，而其它的编程语言并不支持。为了保持 JSON 的通用性和互操作性，JSON 规范选择不支持 undefined。
 
 
 
@@ -635,7 +635,7 @@ permalink: /pages/fccbfd
 
 ### 6.2.1 概述
 
-* `序列化`和`反序列化`是两个常用的数据处理操作，它们在不同的场景下有不同的含义和用途，`很多编程语言`都有`序列化`和`反系列化`的概念，JavaScript 也不例外。
+* `序列化` 和 `反序列化` 是两个常用的数据处理操作，它们在不同的场景下有不同的含义和用途，`很多编程语言` 都有 `序列化` 和 `反系列化` 的概念，JavaScript 也不例外。
 
 ### 6.2.2 序列化
 
@@ -646,7 +646,7 @@ permalink: /pages/fccbfd
 
 ![image-20230801080811145](./assets/5.png)
 
-* 在 JavaScript 中，可以通过 `stringify` 方法将 `JSON 对象`转变为 `JSON 格式的字符串`。
+* 在 JavaScript 中，可以通过 `stringify` 方法将 `JSON 对象` 转变为 `JSON 格式的字符串`。
 
 ```js
 JSON.stringify(value: any, replacer?: (this: any, key: string, value: any) => any, space?: string | number): string;
@@ -689,7 +689,7 @@ JSON.stringify(value: any, replacer?: (this: any, key: string, value: any) => an
 
 ![image-20230801080731650](./assets/6.png)
 
-* 在 JavaScript 中，可以通过 `parse` 方法将 `JSON 格式的字符串`转变为  `JSON 对象`。
+* 在 JavaScript 中，可以通过 `parse` 方法将 `JSON 格式的字符串` 转变为  `JSON 对象`。
 
 ```json
 JSON.parse(text: string, reviver?: (this: any, key: string, value: any) => any): any;
@@ -736,8 +736,8 @@ JSON.parse(text: string, reviver?: (this: any, key: string, value: any) => any):
     * localStorage 中存储的数据没有过期时间，除非手动清除或者用户清除浏览器缓存，否则数据将一直存在。
     * sessionStorage 中存储的数据在当前会话结束后会被自动清除，即当用户关闭浏览器窗口或标签页时，存储的数据会被删除。
   * 数据的作用域：
-    * localStorage 中存储的数据在`同一个域名下`的`所有页面`中共享，即使是不同的窗口或标签页。
-    * sessionStorage 中存储的数据只在`同一个窗口`或`标签页`中共享，不同的窗口或标签页之间无法共享数据。
+    * localStorage 中存储的数据在 `同一个域名下` 的 `所有页面` 中共享，即使是不同的窗口或标签页。
+    * sessionStorage 中存储的数据只在 `同一个窗口` 或 `标签页` 中共享，不同的窗口或标签页之间无法共享数据。
 
 * 应用场景：
   * localStorage 适用于需要长期保存的数据，例如：用户的个人设置、主题选择等。由于数据不会过期，可以在用户下次访问网站时继续使用。
@@ -759,13 +759,13 @@ JSON.parse(text: string, reviver?: (this: any, key: string, value: any) => any):
   storage.key(index: number): string | null;
   ```
   
-  * 将 key 和 value 存储到 Storage  对象中，如果 key 已经存在，将会覆盖 value ：
+  * 将 key 和 value 存储到 Storage  对象中，如果 key 已经存在，将会覆盖 value：
   
   ```js
   storage.setItem(key: string, value: string): void;
   ```
   
-  * 根据 key 从 Storage  对象中获取 value ，如果 value 不存在，将返回 null ：
+  * 根据 key 从 Storage  对象中获取 value，如果 value 不存在，将返回 null：
   
   ```js
   storage.getItem(key: string): string | null;

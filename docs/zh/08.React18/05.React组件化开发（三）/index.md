@@ -10,7 +10,7 @@ permalink: /pages/e97a65
 
 ### 1.1.1 概述
 
-* 之前，我们已经学习过 React 的[渲染机制](https://aexiar.github.io/web-design/notes/07_React18/01_xdx/#_3-7-jsx-%E6%9C%AC%E8%B4%A8)：
+* 之前，我们已经学习过 React 的 [渲染机制](https://aexiar.github.io/web-design/notes/07_React18/01_xdx/#_3-7-jsx-%E6%9C%AC%E8%B4%A8)：
 
 ![image-20231221143951065](./assets/1.png)
 
@@ -46,11 +46,11 @@ permalink: /pages/e97a65
 * 我们在遍历数据的时候，需要指定 key 属性，要求如下：
   * ① key  需要是唯一的。
   * ② key 不能使用随机数。
-  * ③ 是一个 index 作为 key ，对性能没有什么优化。
+  * ③ 是一个 index 作为 key，对性能没有什么优化。
 
 ## 1.2 render 函数的调用
 
-* 借用[组件嵌套](https://aexiar.github.io/web-design/notes/07_React18/03_xdx/#_3-1-%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B5%8C%E5%A5%97)案例，如果我们在 App 组件中，增加计数器的功能，render 函数会调用几次？
+* 借用 [组件嵌套](https://aexiar.github.io/web-design/notes/07_React18/03_xdx/#_3-1-%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B5%8C%E5%A5%97) 案例，如果我们在 App 组件中，增加计数器的功能，render 函数会调用几次？
 
 
 
@@ -231,7 +231,7 @@ export default ProductList
 
 
 
-* 通过`浏览器`上的`点击`按钮，查看`控制台`显示效果：
+* 通过 `浏览器` 上的 `点击` 按钮，查看 `控制台` 显示效果：
 
 ![](./assets/6.gif)
 
@@ -258,12 +258,12 @@ shouldComponentUpdate?(nextProps: Readonly<P>, nextState: Readonly<S>, nextConte
   * 如果为 true，就会调用 render 方法（默认值）。
   * 如果为 false，就不会调用 render 方法。
 
-> 注意⚠️：在React中，默认情况下，当父组件的 `shouldComponentUpdate` 返回 `true` 时，即使子组件的状态（`state`）没有变化，子组件仍然会重新执行 `render` 方法。
+> 注意⚠️：在 React 中，默认情况下，当父组件的 `shouldComponentUpdate` 返回 `true` 时，即使子组件的状态（`state`）没有变化，子组件仍然会重新执行 `render` 方法。
 >
-> * 这是因为 React 默认情况下无法确定子组件的状态是否发生了变化。即使子组件的`state`没有直接变化，但是父组件的 `render` 方法可能会导致子组件的 `props` 发生变化，从而触发子组件的重新渲染。
+> * 这是因为 React 默认情况下无法确定子组件的状态是否发生了变化。即使子组件的 `state` 没有直接变化，但是父组件的 `render` 方法可能会导致子组件的 `props` 发生变化，从而触发子组件的重新渲染。
 > * 为了避免不必要的渲染，可以在子组件中使用 `shouldComponentUpdate` 方法来进行优化。在 `shouldComponentUpdate` 中，可以根据具体的业务逻辑判断是否需要重新渲染子组件。如果确定子组件的 `state` 没有变化，可以返回 `false` ，以避免不必要的渲染。
 
-* React 的`生命周期`图例，如下：
+* React 的 `生命周期` 图例，如下：
 
 ![image-20231218144253683](./assets/7.png)
 
@@ -445,7 +445,7 @@ class ProductList extends React.Component {
 export default ProductList
 ```
 
-* 通过`浏览器`上的`点击`按钮，查看`控制台`显示效果：
+* 通过 `浏览器` 上的 `点击` 按钮，查看 `控制台` 显示效果：
 
 ![](./assets/8.gif)
 
@@ -756,13 +756,13 @@ class ProductList extends PureComponent {
 export default ProductList
 ```
 
-* 通过`浏览器`上的`点击`按钮，查看`控制台`显示效果：
+* 通过 `浏览器` 上的 `点击` 按钮，查看 `控制台` 显示效果：
 
 ![](./assets/9.gif)
 
 > 注意⚠️：类式组件是可以继承 PureComponent 类的，函数式组件可不能继承 PureComponent 类的；此时，函数式组件就需要使用 `React.memo()` 高阶组件了。
 
-* 改造其中一个子组件，是其变为函数式组件，并使用 `React.memo()`高阶组件包装使其进行浅层比较：
+* 改造其中一个子组件，是其变为函数式组件，并使用 `React.memo()` 高阶组件包装使其进行浅层比较：
 
 ```jsx {4}
 import React, {memo, useState} from 'react'
@@ -785,7 +785,7 @@ const Footer = memo(function Footer() {
 export default Footer
 ```
 
-* 通过`浏览器`上的`点击`按钮，查看`控制台`显示效果：
+* 通过 `浏览器` 上的 `点击` 按钮，查看 `控制台` 显示效果：
 
 ![](./assets/10.gif)
 
@@ -795,7 +795,7 @@ export default Footer
 
 * 我们知道，PureComponent 类使用的是 shallowEqual 方法来进行比较的，是浅层比较的，难道有什么问题？
 
-* 之前，我们实现过[购物车](https://aexiar.github.io/web-design/notes/07_React18/01_xdx/#_3-10-%E8%B4%AD%E7%89%A9%E8%BD%A6%E6%A1%88%E4%BE%8B)的案例；但是，我们当时是在 `html` 中完成的；现在，我们将复制到工程中。
+* 之前，我们实现过 [购物车](https://aexiar.github.io/web-design/notes/07_React18/01_xdx/#_3-10-%E8%B4%AD%E7%89%A9%E8%BD%A6%E6%A1%88%E4%BE%8B) 的案例；但是，我们当时是在 `html` 中完成的；现在，我们将复制到工程中。
 * 项目结构：
 
 ![image-20231221164005826](./assets/11.png)
@@ -962,7 +962,7 @@ class App extends Component {
 export default App
 ```
 
-* 通过`浏览器`，查看`控制台`显示效果：
+* 通过 `浏览器`，查看 `控制台` 显示效果：
 
 ![](./assets/12.gif)
 
@@ -1104,7 +1104,7 @@ class App extends PureComponent {
 export default App
 ```
 
-* 通过`浏览器`，查看`控制台`显示效果：
+* 通过 `浏览器`，查看 `控制台` 显示效果：
 
 ![](./assets/13.gif)
 
@@ -1400,7 +1400,7 @@ class App extends PureComponent {
 export default App
 ```
 
-* 通过`浏览器`，查看`控制台`显示效果：
+* 通过 `浏览器`，查看 `控制台` 显示效果：
 
 ![](./assets/14.gif)
 
@@ -1462,7 +1462,7 @@ handleClick() {
 
 * React 通过 refs 来获取对应的原生 DOM 对象，有三种方式：
 
-  * ~~第一种方式：传入字符串，使用的时候通过 `this.refs.字符串`获取对应的元素~~。
+  * ~~第一种方式：传入字符串，使用的时候通过 `this.refs.字符串` 获取对应的元素~~。
 
   * 第二种方式：传入对象
     * 通过 React.createRef() 方式创建 Ref 对象，并传入该 Ref 对象。
@@ -1475,7 +1475,7 @@ handleClick() {
 > 注意⚠️：
 >
 > * 第一种方式已经废弃。
-> * 函数式组件是没有 this 的，就需要使用 `React.forwardRef()` 高阶组件或 `useRef()` 这样的 hooks ，后续讲解。
+> * 函数式组件是没有 this 的，就需要使用 `React.forwardRef()` 高阶组件或 `useRef()` 这样的 hooks，后续讲解。
 
 ### 2.2.2 第一种方式（已废弃）
 
@@ -1573,7 +1573,7 @@ export default App
 
 ![image-20231222083527145](./assets/20.png)
 
-* 示例 ：
+* 示例：
 
 ```jsx {9,21,14}
 import React from 'react'
@@ -1610,7 +1610,7 @@ export default App
 
 ### 2.3.1 ref 访问类式组件
 
-* React 中的类式组件是有组件实例的，所以可以通过 ref 来获取类式组件实例，进而调用该实例身上的属性或方法，如：state、props 、refs 等。
+* React 中的类式组件是有组件实例的，所以可以通过 ref 来获取类式组件实例，进而调用该实例身上的属性或方法，如：state、props、refs 等。
 
 
 
@@ -1691,7 +1691,7 @@ class Parent extends React.Component {
 }
 ```
 
-* 如果要在函数式组件中使用 ref ，就可以使用 forwardRef 高阶函数。
+* 如果要在函数式组件中使用 ref，就可以使用 forwardRef 高阶函数。
 
 ```jsx {3,9,20,27,31}
 import React, {forwardRef} from 'react'
@@ -1735,7 +1735,7 @@ export default App
 
 > 注意⚠️：上述的这种形式，React 官方称为 refs 转发，其流程如下：
 >
-> * ① 通过调用 `React.createRef` 创建了一个 `React ref`并将其赋值给 `ref` 变量（App 组件）。
+> * ① 通过调用 `React.createRef` 创建了一个 `React ref` 并将其赋值给 `ref` 变量（App 组件）。
 > * ② 通过指定的 ref 为 JSX 属性，将其向下传递给 `<HelloWorld ref={this.helloWorldRef}/>`（App 组件）。
 > * ③ React 传递 `ref` 给 `forwardRef` 内函数 `(props, ref) => ...`，作为其第二个参数（HelloWorld 组件）。
 > * ④ 我们向下转发该 `ref` 参数到 `<h2 ref={ref}>{message}</h2>`，将其指定为 JSX 属性（HelloWorld 组件）。
@@ -1747,17 +1747,17 @@ export default App
 
 ## 3.1 概述
 
-* React 中的`受控组件`和`非受控组件`是两种不同的组件状态管理方式。
+* React 中的 `受控组件` 和 `非受控组件` 是两种不同的组件状态管理方式。
 
-  * `受控组件`是指组件的状态由 React 控制和管理。在受控组件中，组件的值和状态由 `state` 传递给组件，并且通过`事件处理函数`来更新组件的状态。例如，一个受控的 input 组件，其值由 state 传递给 value 属性，并通过 onChange 事件来更新值。
+  * `受控组件` 是指组件的状态由 React 控制和管理。在受控组件中，组件的值和状态由 `state` 传递给组件，并且通过 `事件处理函数` 来更新组件的状态。例如，一个受控的 input 组件，其值由 state 传递给 value 属性，并通过 onChange 事件来更新值。
 
-  * `非受控组件`是指组件的状态由组件自身管理。在非受控组件中，组件的值和状态不受 React 控制，而是由 DOM 元素本身来管理。例如，一个非受控的 input 组件，其值由用户输入直接更新到 DOM 元素中，通过 ref 来获取输入的值。
+  * `非受控组件` 是指组件的状态由组件自身管理。在非受控组件中，组件的值和状态不受 React 控制，而是由 DOM 元素本身来管理。例如，一个非受控的 input 组件，其值由用户输入直接更新到 DOM 元素中，通过 ref 来获取输入的值。
 
-* 总结来说，`受控组件`通过 `state ` 和`事件处理函数`来管理组件的状态，而`非受控组件`则由 `DOM 元素自身`来`管理状态`。受控组件提供了更精确的控制和验证，而非受控组件则更加简单和直接。选择使用哪种方式取决于具体的需求和场景。
+* 总结来说，`受控组件` 通过 `state ` 和 `事件处理函数` 来管理组件的状态，而 `非受控组件` 则由 `DOM 元素自身` 来 `管理状态`。受控组件提供了更精确的控制和验证，而非受控组件则更加简单和直接。选择使用哪种方式取决于具体的需求和场景。
 
 ## 3.2 如何理解受控组件？
 
-* 在 Vue 中，我们是通过 `v-model` 来实现表单的`收集`和`维护`的（Vue 通过 v-model 实现了双向绑定）：
+* 在 Vue 中，我们是通过 `v-model` 来实现表单的 `收集` 和 `维护` 的（Vue 通过 v-model 实现了双向绑定）：
 
 ```vue
 <input v-model="searchText" />
@@ -1881,18 +1881,18 @@ export default App
 
 
 
-* 并且，在 React 开发中，我们会将数据维护在 state 中，并使用 JavaScript 函数来处理表单的提交，以及访问用户填写的表单数据；实现此类效果的标准方式就需要使用`受控组件`。
+* 并且，在 React 开发中，我们会将数据维护在 state 中，并使用 JavaScript 函数来处理表单的提交，以及访问用户填写的表单数据；实现此类效果的标准方式就需要使用 `受控组件`。
 
 >  React 官方的定义：
 >
-> * 在 HTML 中，表单元素（如`<input>`、 `<textarea>` 和 `<select>`）通常自己维护 state，并根据用户输入进行更新。
-> * 而在 React 中，可变状态（mutable state）通常`保存`在组件的 `state` 属性中，并且只能通过使用 `setState()`来更新。
-> * React  可以把两者结合起来，使 React 的 state 成为`“唯一数据源`”。渲染表单的 React 组件还控制着用户输入过程中表单发生的操作。被 React 以这种方式控制取值的表单输入元素就叫做`“受控组件”`。
+> * 在 HTML 中，表单元素（如 `<input>`、 `<textarea>` 和 `<select>`）通常自己维护 state，并根据用户输入进行更新。
+> * 而在 React 中，可变状态（mutable state）通常 `保存` 在组件的 `state` 属性中，并且只能通过使用 `setState()` 来更新。
+> * React  可以把两者结合起来，使 React 的 state 成为 `“唯一数据源`”。渲染表单的 React 组件还控制着用户输入过程中表单发生的操作。被 React 以这种方式控制取值的表单输入元素就叫做 `“受控组件”`。
 >
 > 个人理解：
 >
 > * 对于像 input、textarea 和 select 等的表单元素，我们通常会将 value 属性设置为 state 中的值；一旦这样设置之后，React 就会强制你使用 onChange 事件来将用户输入的数据通过 setState() 维护到 state 中；
-> * 一旦这样，页面中显示的值始终就是 `this.state.xxx`， 这将使得 React 的 state 成为唯一的数据源。
+> * 一旦这样，页面中显示的值始终就是 `this.state.xxx`，这将使得 React 的 state 成为唯一的数据源。
 
 ## 3.3 受控组件的使用
 
@@ -1973,7 +1973,7 @@ export default App
 
 ### 3.3.2 处理多个输入
 
-* 如果每个 `input` 元素，我们都需要编写对应的`事件处理函数`，那么也太麻烦了；此时，我们就可以给每个 input  元素添加 `name` 属性，并让事件处理函数根据 `event.target.name` 的值选择要执行的操作。
+* 如果每个 `input` 元素，我们都需要编写对应的 `事件处理函数`，那么也太麻烦了；此时，我们就可以给每个 input  元素添加 `name` 属性，并让事件处理函数根据 `event.target.name` 的值选择要执行的操作。
 
 
 
@@ -2110,7 +2110,7 @@ export default App
 
 ### 3.3.4 多个 checkbox 
 
-* Vue 中对于多个 checkbox 的处理，是使用`数组`来收集的。但是，在 React 中比较麻烦，需要使用`数组对象` 来处理。
+* Vue 中对于多个 checkbox 的处理，是使用 `数组` 来收集的。但是，在 React 中比较麻烦，需要使用 `数组对象` 来处理。
 
 
 
@@ -2211,7 +2211,7 @@ export default App
 
 ### 3.3.5 select 单选
 
-* select 单选和`普通的文本控件`的处理，没什么区别。
+* select 单选和 `普通的文本控件` 的处理，没什么区别。
 
 
 
@@ -2331,7 +2331,7 @@ export default App
 
 ### 3.3.6 select 多选（了解）
 
-* select 多选比较麻烦，在 state 中维护的数据的类型是`数组`；在事件处理函数中，处理选中的数据维护在 `e.target.selectedOptions` 这个可迭代对象中，需要`手动`转换为数组。
+* select 多选比较麻烦，在 state 中维护的数据的类型是 `数组`；在事件处理函数中，处理选中的数据维护在 `e.target.selectedOptions` 这个可迭代对象中，需要 `手动` 转换为数组。
 
 
 
@@ -2473,7 +2473,7 @@ export default App
 
 ### 3.4.1 概述
 
-* React 推荐在绝大多数情况下使用 `受控组件` 来处理表单数据；换言之，在`受控组件`中，表单的数据由 React 组件中的 state 来维护和管理。
+* React 推荐在绝大多数情况下使用 `受控组件` 来处理表单数据；换言之，在 `受控组件` 中，表单的数据由 React 组件中的 state 来维护和管理。
 * 但是，有的时候，使用受控组件非常麻烦，因为我们需要为数据变化的每种方式编写事件处理函数，并将数据维护在 React 中的 state 中；这个时候 `非受控组件` 可能是另一种选择，即我们需要使用 ref 来从 DOM 节点上获取表单数据。
 
 > 注意⚠️：
