@@ -75,4 +75,10 @@ export const customIcon = {
     log: localIcon("../../../public/iconify/log.svg"),
     "日志": localIcon("../../../public/iconify/log.svg"),
     "路由器": localIcon("../../../public/iconify/router.svg"),
+    taobao: localIcon("../../../public/iconify/taobao.svg"),
+    "淘宝": localIcon("../../../public/iconify/taobao.svg"),
+    jd: localIcon("../../../public/iconify/jd.svg"),
+    "京东": localIcon("../../../public/iconify/jd.svg"),
+    xiaomi: localIcon("../../../public/iconify/xiaomi.svg"),
+    "小米": localIcon("../../../public/iconify/xiaomi.svg"),
 }
