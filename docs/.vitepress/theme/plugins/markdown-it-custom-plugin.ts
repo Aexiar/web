@@ -92,4 +92,35 @@ export function customMarkdownPlugin(md: MarkdownIt) {
 
         return defaultFence(tokens, idx, options, env, self);
     };
+
+    // =========================================================================
+    // 3. 为正文中的 emoji 注入原生悬停提示 (title)
+    // =========================================================================
+    const emojiTips: Record<string, string> = {
+        '🤔': '思考',
+        '💡': '灵感',
+        '⚠️': '경고',
+        '✅': '正确',
+        '❌': '错误',
+    }
+    const emojiKeys = Object.keys(emojiTips)
+    const escapeRegExp = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    const emojiPattern = new RegExp(emojiKeys.map(escapeRegExp).join('|'), 'gu')
+
+    const defaultText =
+        md.renderer.rules.text?.bind(md.renderer.rules) ??
+        ((...args: any[]) => args[0][args[1]].content)
+
+    md.renderer.rules.text = (tokens, idx, options, env, self) => {
+        const content = tokens[idx].content
+        if (!content || !emojiKeys.some((k) => content.includes(k))) {
+            return defaultText(tokens, idx, options, env, self)
+        }
+        // 重置 lastIndex，避免全局正则 (g 标志) 的状态残留
+        emojiPattern.lastIndex = 0
+        return content.replace(
+            emojiPattern,
+            (emoji) => `<span class="vp-emoji-tip" title="${emojiTips[emoji]}">${emoji}</span>`
+        )
+    }
 }
