@@ -103,11 +103,25 @@ function stop(event: PointerEvent) {
 
 <style scoped>
 .clock-page {
+  font-family:system-ui,sans-serif;
+  color-scheme:light;
+  --vp-c-text-1:#25324b;
+  --vp-c-text-2:#667085;
+  --vp-c-brand-1:#7955cc;
+  --vp-c-bg:#fff;
+  --vp-c-bg-soft:#f7f8fc;
+  --vp-c-divider:#e0e5ed;
+  background:#fff;
+  min-height:100vh;
   max-width:1080px;
   margin:auto;
   padding:40px 24px 64px;
   color:var(--vp-c-text-1);
 }
+.clock-page * { box-sizing:border-box; }
+button,select { font:inherit; -webkit-tap-highlight-color:transparent; }
+button { cursor:pointer; background:transparent; }
+h1,h2,p { margin:0; }
 header {
   text-align:center;
   margin-bottom:32px;

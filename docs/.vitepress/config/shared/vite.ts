@@ -1,7 +1,4 @@
 import terser from "@rollup/plugin-terser";
-import type { ViteDevServer } from "vite";
-import { readFile } from "node:fs/promises";
-import { resolve } from "node:path";
 import AutoFrontmatter from "vitepress-plugin-auto-frontmatter";
 import { AnnouncementPlugin } from "vitepress-plugin-announcement";
 import { groupIconVitePlugin } from "vitepress-plugin-group-icons";
@@ -11,6 +8,7 @@ import { qrcode } from "vite-plugin-qrcode";
 import { customIcon } from "../../theme/utils/customIcon";
 import { IndexPermalinkCompat } from "../../theme/plugins/Index-permalink-compat-plugin";
 import { demoAlias } from "./context";
+import { standalonePagesPlugin } from './standalone';
 
 export const viteConfig = {
     resolve: { alias: demoAlias },
@@ -32,31 +30,7 @@ export const viteConfig = {
         ],
     },
     plugins: [
-        {
-            name: 'standalone-clock-route',
-            configureServer(server: ViteDevServer) {
-                server.middlewares.use(async (req, res, next) => {
-                    if (/^\/clock(?:\?|$)/.test(req.url || '')) {
-                        res.writeHead(302, { Location: (req.url || '').replace('/clock', '/clock/') });
-                        res.end();
-                        return;
-                    }
-                    if (/^\/clock\/(?:index\.html)?(?:\?|$)/.test(req.url || '')) {
-                        try {
-                            const source = await readFile(resolve(server.config.root, 'clock/index.html'), 'utf8');
-                            const html = await server.transformIndexHtml('/clock/index.html', source);
-                            res.statusCode = 200;
-                            res.setHeader('Content-Type', 'text/html; charset=utf-8');
-                            res.end(html);
-                        } catch (error) {
-                            next(error);
-                        }
-                        return;
-                    }
-                    next();
-                });
-            },
-        },
+        standalonePagesPlugin(),
         AutoFrontmatter({
             pattern: "**/*.md",
             transform: (frontmatter, fileInfo) => {
