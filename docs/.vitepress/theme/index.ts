@@ -13,6 +13,7 @@ import { NProgress } from 'nprogress-v2/dist/index.js'
 import { NolebaseInlineLinkPreviewPlugin, } from '@nolebase/vitepress-plugin-inline-link-preview/client'
 import 'virtual:group-icons.css'
 import './style/index.css'
+import { disableMobileZoom } from './utils/mobile-zoom'
 import { initComponent } from "vitepress-plugin-legend/component"
 import {
   AntDesignContainer,
@@ -51,6 +52,7 @@ export default {
     app.component('demo-preview', AntDesignContainer)
 
     if (inBrowser) {
+      disableMobileZoom()
       NProgress.configure({ showSpinner: false })
       // 手动定义 onBeforeRouteChange
       router.onBeforeRouteChange = () => {

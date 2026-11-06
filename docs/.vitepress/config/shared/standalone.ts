@@ -7,10 +7,10 @@ const pages = [
   { route: '/clock', title: '认识时钟', component: 'LearningClock.vue' },
 ]
 
-const reset = 'html{background:#fff}body{margin:0}*{box-sizing:border-box}'
+const reset = 'html{background:#fff}body{margin:0}*{box-sizing:border-box}html,body{touch-action:pan-x pan-y}@media(any-pointer:coarse){input,textarea,select{font-size:max(16px,1em)}}'
 const moduleId = (route: string) => `virtual:standalone${route}`
 const html = (title: string, script: string, styles = '') =>
-  `<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${title}</title><style>${reset}</style>${styles}</head><body><div id="app"></div><script type="module" src="${script}"></script></body></html>`
+  `<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><title>${title}</title><style>${reset}</style>${styles}</head><body><div id="app"></div><script type="module" src="${script}"></script></body></html>`
 
 export function standalonePagesPlugin(): Plugin {
   return {
@@ -22,7 +22,8 @@ export function standalonePagesPlugin(): Plugin {
       const page = pages.find(page => id === `\0${moduleId(page.route)}`)
       if (!page) return
       const component = normalizePath(resolve(import.meta.dirname, '../../theme/components', page.component))
-      return `import { createApp } from 'vue'; import Page from ${JSON.stringify(component)}; createApp(Page).mount('#app')`
+      const mobileZoom = normalizePath(resolve(import.meta.dirname, '../../theme/utils/mobile-zoom.ts'))
+      return `import { createApp } from 'vue'; import Page from ${JSON.stringify(component)}; import { disableMobileZoom } from ${JSON.stringify(mobileZoom)}; disableMobileZoom(); createApp(Page).mount('#app')`
     },
     configureServer(server) {
       server.middlewares.use(async (req, res, next) => {
