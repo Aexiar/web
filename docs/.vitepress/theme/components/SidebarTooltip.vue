@@ -1,9 +1,9 @@
 <template>
   <Transition name="tooltip-fade">
     <div
-        v-show="state.visible"
-        id="vp-custom-sidebar-tooltip"
-        :style="{
+      v-show="state.visible"
+      id="vp-custom-sidebar-tooltip"
+      :style="{
         position: 'fixed',
         backgroundColor: '#303133',
         color: '#ffffff',
@@ -15,53 +15,55 @@
         pointerEvents: 'none',
         whiteSpace: 'nowrap',
         left: state.left + 'px',
-        top: state.top + 'px'
+        top: state.top + 'px',
       }"
     >
       {{ state.text }}
 
-      <div :style="{
-        position: 'absolute',
-        bottom: '-4px',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        width: '0',
-        height: '0',
-        borderLeft: '5px solid transparent',
-        borderRight: '5px solid transparent',
-        borderTop: '5px solid #303133'
-      }"></div>
+      <div
+        :style="{
+          position: 'absolute',
+          bottom: '-4px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '0',
+          height: '0',
+          borderLeft: '5px solid transparent',
+          borderRight: '5px solid transparent',
+          borderTop: '5px solid #303133',
+        }"
+      ></div>
     </div>
   </Transition>
 </template>
 
 <script setup>
-import { reactive, onMounted, onUnmounted, watch, nextTick } from 'vue'
-import { useRoute } from 'vitepress'
+import { reactive, onMounted, onUnmounted, watch, nextTick } from "vue"
+import { useRoute } from "vitepress"
 
 // 定义 Props
 const props = defineProps({
   onlyEllipsis: {
     type: Boolean,
-    default: false // 默认全部显示 tooltip
-  }
+    default: false, // 默认全部显示 tooltip
+  },
 })
 
 const route = useRoute()
 
 const state = reactive({
   visible: false,
-  text: '',
+  text: "",
   left: 0,
-  top: 0
+  top: 0,
 })
 
 const initTooltipListeners = () => {
-  if (typeof document === 'undefined') return
+  if (typeof document === "undefined") return
 
-  const textNodes = document.querySelectorAll('#VPSidebarNav .item .text')
+  const textNodes = document.querySelectorAll("#VPSidebarNav .item .text")
 
-  textNodes.forEach(node => {
+  textNodes.forEach((node) => {
     node.onmouseenter = () => {
       const textVal = node.innerText.trim()
 
@@ -78,9 +80,9 @@ const initTooltipListeners = () => {
       const rect = node.getBoundingClientRect()
 
       // 动态虚拟计算文字的视觉真实宽度
-      const span = document.createElement('span')
-      span.style.visibility = 'hidden'
-      span.style.whiteSpace = 'nowrap'
+      const span = document.createElement("span")
+      span.style.visibility = "hidden"
+      span.style.whiteSpace = "nowrap"
       span.style.font = window.getComputedStyle(node).font
       span.innerText = state.text
       document.body.appendChild(span)
@@ -89,11 +91,12 @@ const initTooltipListeners = () => {
       document.body.removeChild(span)
 
       // 根据文字是否溢出截断，计算真实的视觉中心点
-      const textVisualWidth = actualTextWidth > rect.width ? rect.width : actualTextWidth
+      const textVisualWidth =
+        actualTextWidth > rect.width ? rect.width : actualTextWidth
       state.left = rect.left + textVisualWidth / 2
 
       nextTick(() => {
-        const tooltipEl = document.getElementById('vp-custom-sidebar-tooltip')
+        const tooltipEl = document.getElementById("vp-custom-sidebar-tooltip")
         const tooltipHeight = tooltipEl ? tooltipEl.offsetHeight : 32
 
         state.top = rect.top - tooltipHeight - 8
@@ -110,9 +113,13 @@ onMounted(() => {
   setTimeout(initTooltipListeners, 400)
 })
 
-watch(() => route.path, () => {
-  setTimeout(initTooltipListeners, 450)
-}, { flush: 'post' })
+watch(
+  () => route.path,
+  () => {
+    setTimeout(initTooltipListeners, 450)
+  },
+  { flush: "post" },
+)
 
 onUnmounted(() => {
   state.visible = false
@@ -120,7 +127,6 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-
 /* 默认桌面端常驻居中基础定位 */
 #vp-custom-sidebar-tooltip {
   transform: translate(-50%, 0);
@@ -146,7 +152,9 @@ onUnmounted(() => {
 /* 进场和出场动画的持续时间和缓动曲线 */
 .tooltip-fade-enter-active,
 .tooltip-fade-leave-active {
-  transition: opacity 0.18s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.18s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition:
+    opacity 0.18s cubic-bezier(0.25, 0.8, 0.25, 1),
+    transform 0.18s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* 默认常驻状态下的居中基础定位 */

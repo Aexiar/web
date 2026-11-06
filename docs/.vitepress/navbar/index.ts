@@ -1,7 +1,4 @@
-import { enNav } from './en'
-import { zhNav } from './zh'
+import { enNav } from "./en"
+import { zhNav } from "./zh"
 
-export {
-  zhNav,
-  enNav,
-}
+export { zhNav, enNav }

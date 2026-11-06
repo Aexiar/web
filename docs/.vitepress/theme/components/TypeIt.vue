@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, ref, watch } from 'vue'
-import TypeIt from 'typeit'
-import type { Options } from 'typeit'
+import { onMounted, onBeforeUnmount, ref, watch } from "vue"
+import TypeIt from "typeit"
+import type { Options } from "typeit"
 
 // 定义 Props
 interface Props {
@@ -21,7 +21,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   start: true,
-  options: () => ({})
+  options: () => ({}),
 })
 
 // 绑定 DOM 引用
@@ -39,16 +39,16 @@ const initTypeIt = () => {
 
   // 合并默认配置和用户配置
   const config: Options = {
-    speed: 50,           // 打字速度
-    breakLines: false,   // 是否换行
+    speed: 50, // 打字速度
+    breakLines: false, // 是否换行
     waitUntilVisible: true, // 元素进入视口才开始打字（对长页面很有用）
-    cursor: true,        // 显示光标
-    ...props.options
+    cursor: true, // 显示光标
+    ...props.options,
   }
 
   instance = new TypeIt(el.value, {
     strings: Array.isArray(props.strings) ? props.strings : [props.strings],
-    ...config
+    ...config,
   })
 
   if (props.start) {
@@ -58,11 +58,11 @@ const initTypeIt = () => {
 
 // 监听 props 变化，支持动态更新字符串
 watch(
-    () => [props.strings, props.options],
-    () => {
-      initTypeIt()
-    },
-    { deep: true }
+  () => [props.strings, props.options],
+  () => {
+    initTypeIt()
+  },
+  { deep: true },
 )
 
 onMounted(() => {

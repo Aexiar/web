@@ -1,16 +1,19 @@
-import { enNav } from '../navbar'
-import dayjs from 'dayjs'
-import type { DefaultTheme, LocaleSpecificConfig } from 'vitepress'
+import { enNav } from "../navbar"
+import dayjs from "dayjs"
+import type { DefaultTheme, LocaleSpecificConfig } from "vitepress"
 
 export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
-  themeConfig: { // 主题设置
+  themeConfig: {
+    // 主题设置
     nav: enNav,
-    footer: { // 页脚
-      message: 'Released under the MIT License.',
-      copyright: `Copyright © ${dayjs().format("YYYY")} 许大仙`
+    footer: {
+      // 页脚
+      message: "Released under the MIT License.",
+      copyright: `Copyright © ${dayjs().format("YYYY")} 许大仙`,
     },
-    outline: { // 大纲显示 1-6 级标题
+    outline: {
+      // 大纲显示 1-6 级标题
       level: [1, 6],
-    }
-  }
+    },
+  },
 }
