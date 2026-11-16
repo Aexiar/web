@@ -10,7 +10,7 @@ import multimdTable from "markdown-it-multimd-table"
 // @ts-ignore package does not publish declarations
 import markdownItTaskCheckbox from "markdown-it-task-checkbox"
 import timeline from "vitepress-markdown-timeline"
-import { vitepressDemoPlugin } from "vitepress-demo-plugin"
+import { vitepressDemoPlugin } from "vitepress-demo-plugin/markdown"
 import { groupIconMdPlugin } from "vitepress-plugin-group-icons"
 import vitepressPluginLegend from "vitepress-plugin-legend"
 import { customMarkdownPlugin } from "../../theme/plugins/markdown-it-custom-plugin"
@@ -37,8 +37,24 @@ export async function configureMarkdown(md: MarkdownIt): Promise<void> {
   md.use(figure, { figcaption: "alt", copyAttrs: "^class$", lazy: true })
   md.use(markdownItTaskCheckbox)
   md.use(vitepressDemoPlugin, {
-    demoDir: path.resolve(__dirname, "../../demos"),
+    demoDir: path.resolve(__dirname, "../../../demos"),
   })
+
+  // Nested md:img/markdown rendering resets VitePress's SFC blocks on the
+  // shared environment. Restore the outer blocks so demo imports survive.
+  const render = md.render
+  let renderDepth = 0
+  md.render = (source, env = {}) => {
+    const outerBlocks = env.sfcBlocks
+    const isNested = renderDepth > 0
+    renderDepth++
+    try {
+      return render.call(md, source, env)
+    } finally {
+      renderDepth--
+      if (isNested) env.sfcBlocks = outerBlocks
+    }
+  }
 }
 
 export const markdownConfig = {
